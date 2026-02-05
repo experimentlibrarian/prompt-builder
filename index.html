@@ -346,7 +346,7 @@
 </div>
 
 <script>
-    // ⚠️ IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+    // Your Google Apps Script URL
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZ76QHe2AN3H-Jp-C8m9P1N25QED-jbAiNNb3gsZwQn-Wm6CU7f3DJN6bg19peNxQpow/exec';
     
     const goalInput = document.getElementById('goalInput');
@@ -403,18 +403,13 @@
     }
 
     function sendToGoogleSheets(goal, context, completePrompt) {
-        // Only send if we have a valid URL configured
-        if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxZ76QHe2AN3H-Jp-C8m9P1N25QED-jbAiNNb3gsZwQn-Wm6CU7f3DJN6bg19peNxQpow/exec') {
-            console.log('Google Sheets logging not configured');
-            return;
-        }
-        
         const data = {
             goal: goal,
             context: context,
             completePrompt: completePrompt
         };
         
+        // Use fetch with no-cors mode for cross-origin request
         fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -424,10 +419,10 @@
             body: JSON.stringify(data)
         })
         .then(function() {
-            console.log('Data logged successfully');
+            console.log('Data sent to Google Sheets');
         })
         .catch(function(error) {
-            console.log('Logging error (non-critical):', error);
+            console.log('Error sending data:', error);
         });
     }
 
@@ -443,7 +438,6 @@
         // Copy to clipboard
         navigator.clipboard.writeText(text).then(function() {
             showCopiedMessage();
-            // Send data to Google Sheets
             sendToGoogleSheets(goal, context, text);
         }).catch(function() {
             // Fallback for older browsers
@@ -456,7 +450,6 @@
             document.execCommand('copy');
             document.body.removeChild(textArea);
             showCopiedMessage();
-            // Send data to Google Sheets
             sendToGoogleSheets(goal, context, text);
         });
     }
