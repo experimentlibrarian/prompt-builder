@@ -41,6 +41,14 @@
             margin-bottom: 10px;
         }
         
+        a {
+            color: #1565c0;
+        }
+        
+        a:hover {
+            color: #0d47a1;
+        }
+        
         /* Intro Section */
         .intro-box {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
@@ -107,26 +115,56 @@
             font-weight: 500;
         }
         
-        /* Steps Section */
-        .steps-container {
+        /* Flashcard Styles */
+        .flashcards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin: 25px 0;
         }
         
-        .step-card {
-            background-color: #fff;
-            border: 2px solid #1976d2;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
+        .flashcard {
+            perspective: 1000px;
+            height: 200px;
+            cursor: pointer;
         }
         
-        .step-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.2);
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flashcard:hover .flashcard-inner,
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid #1976d2;
+        }
+        
+        .flashcard-front {
+            background-color: #fff;
+        }
+        
+        .flashcard-back {
+            background-color: #e3f2fd;
+            transform: rotateY(180deg);
         }
         
         .step-number {
@@ -138,21 +176,48 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
+            margin-bottom: 10px;
             font-weight: bold;
             font-size: 18px;
         }
         
-        .step-card h4 {
+        .flashcard-front h4 {
             color: #1565c0;
             margin: 0 0 10px 0;
             font-size: 16px;
         }
         
-        .step-card p {
+        .flashcard-front p {
             margin: 0;
             font-size: 14px;
             color: #666;
+        }
+        
+        .flashcard-back h4 {
+            color: #0d47a1;
+            margin: 0 0 10px 0;
+            font-size: 15px;
+        }
+        
+        .flashcard-back p {
+            margin: 0;
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .flashcard-hint {
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
+        }
+        
+        .click-instruction {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-style: italic;
         }
         
         /* Accordion Styles */
@@ -207,7 +272,31 @@
         
         .accordion-item.active .accordion-content {
             padding: 20px;
-            max-height: 2000px;
+            max-height: 3000px;
+        }
+        
+        /* How It Works Box */
+        .how-it-works {
+            background-color: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .how-it-works h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .how-it-works ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .how-it-works li {
+            margin-bottom: 8px;
         }
         
         /* Input Sections */
@@ -366,6 +455,108 @@
             100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
         }
         
+        /* Library Search Section */
+        .library-search-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border: 2px solid #8b7355;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .library-search-section h4 {
+            color: #5d4e37;
+            margin-top: 0;
+        }
+        
+        .library-header {
+            background-color: #8b7355;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .library-header img {
+            height: 50px;
+        }
+        
+        .library-header h5 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        
+        .library-options {
+            background-color: #d4c8b8;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .library-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: #c9bba7;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        
+        .library-option:hover {
+            background-color: #b8a890;
+            transform: translateX(5px);
+        }
+        
+        .library-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .library-option-icon {
+            font-size: 24px;
+            width: 35px;
+            text-align: center;
+        }
+        
+        .library-option-text h6 {
+            margin: 0;
+            font-size: 16px;
+            color: #1565c0;
+        }
+        
+        .library-option-text p {
+            margin: 3px 0 0 0;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .search-tips {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 20px;
+        }
+        
+        .search-tips h5 {
+            color: #5d4e37;
+            margin: 0 0 10px 0;
+        }
+        
+        .search-tips ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .search-tips li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
         /* Final Section */
         .final-section {
             background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
@@ -408,7 +599,7 @@
             margin-top: 0;
         }
         
-        .support-box a {
+        .support-box a.button {
             display: inline-block;
             background-color: #1976d2;
             color: white;
@@ -420,8 +611,9 @@
             transition: background-color 0.2s;
         }
         
-        .support-box a:hover {
+        .support-box a.button:hover {
             background-color: #1565c0;
+            color: white;
         }
         
         /* Privacy Notice */
@@ -453,8 +645,12 @@
                 padding: 15px;
             }
             
-            .steps-container {
+            .flashcards-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .flashcard {
+                height: 180px;
             }
             
             .accordion-header h3 {
@@ -470,6 +666,11 @@
                 display: block;
                 text-align: center;
                 margin-bottom: 10px;
+            }
+            
+            .library-option {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -489,9 +690,9 @@
 
 <!-- IMPORTANT NOTICE -->
 <div class="important-notice">
-    <h3><span class="icon">⚠️</span> Before You Start: Using GenAI Wisely</h3>
+    <h3><span class="icon">⚠️</span> Before You Start: Using GenAI Effectively</h3>
     
-    <p>GenAI tools like Copilot can be <strong>useful assistants</strong> for your learning—but only if <strong>you're in control</strong>. This means knowing:</p>
+    <p>GenAI tools like <a href="https://copilot.microsoft.com" target="_blank">Copilot</a> can be <strong>useful assistants</strong> for your learning—but only if <strong>you're in control</strong>. This means knowing:</p>
     <ul>
         <li>✅ What tasks to delegate to AI</li>
         <li>✅ How to communicate what you want clearly</li>
@@ -502,7 +703,7 @@
     <ul>
         <li><strong>🎭 It can hallucinate</strong> – GenAI sometimes invents citations that look real but don't exist!</li>
         <li><strong>🔒 Limited access</strong> – It can't access library subscription databases where the best academic sources live.</li>
-        <li><strong>⚖️ Reinforces bias</strong> – AI learns from existing content, which may reflect historical biases. For example, searching for "leadership qualities" might emphasise traits traditionally associated with certain groups, overlooking diverse leadership styles.</li>
+        <li><strong>⚖️ Reinforces bias</strong> – AI learns from existing content, which often reflects dominant cultural perspectives. For example, when searching for information about "family structures" or "community leadership," GenAI may prioritise Western frameworks and overlook Māori concepts like whānau, hapū, and iwi structures, or Pacific models of collective decision-making—limiting the diversity and cultural relevance of your research.</li>
     </ul>
     
     <div class="highlight-box">
@@ -516,26 +717,67 @@
 <h2>📚 Steps to an Effective Search Strategy</h2>
 <p>Before using GenAI to help with prompts, understand the key steps of a good search strategy:</p>
 
-<div class="steps-container">
-    <div class="step-card">
-        <div class="step-number">1</div>
-        <h4>Identify Concepts</h4>
-        <p>Break your topic into main ideas or keywords</p>
+<p class="click-instruction">👆 <strong>Click on each card</strong> to discover why each step is important!</p>
+
+<div class="flashcards-container">
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+            <div class="flashcard-front">
+                <div class="step-number">1</div>
+                <h4>Identify Concepts</h4>
+                <p>Break your topic into main ideas or keywords</p>
+                <span class="flashcard-hint">Click to flip</span>
+            </div>
+            <div class="flashcard-back">
+                <h4>Why It's Important</h4>
+                <p>Breaking down your topic helps you focus on what really matters. It prevents overwhelm and ensures you don't miss key aspects of your research question.</p>
+            </div>
+        </div>
     </div>
-    <div class="step-card">
-        <div class="step-number">2</div>
-        <h4>Find Alternatives</h4>
-        <p>Think of synonyms and related terms</p>
+    
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+            <div class="flashcard-front">
+                <div class="step-number">2</div>
+                <h4>Find Alternatives</h4>
+                <p>Think of synonyms and related terms</p>
+                <span class="flashcard-hint">Click to flip</span>
+            </div>
+            <div class="flashcard-back">
+                <h4>Why It's Important</h4>
+                <p>Different authors use different words for the same concept. Using synonyms helps you find more relevant sources and avoid missing important research.</p>
+            </div>
+        </div>
     </div>
-    <div class="step-card">
-        <div class="step-number">3</div>
-        <h4>Use Techniques</h4>
-        <p>Apply AND, OR, NOT, "phrases", truncation*</p>
+    
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+            <div class="flashcard-front">
+                <div class="step-number">3</div>
+                <h4>Use Techniques</h4>
+                <p>Apply AND, OR, NOT, "phrases", truncation*</p>
+                <span class="flashcard-hint">Click to flip</span>
+            </div>
+            <div class="flashcard-back">
+                <h4>Why It's Important</h4>
+                <p>Boolean operators give you control over your search. They help you combine terms effectively to get more precise results—not too many, not too few.</p>
+            </div>
+        </div>
     </div>
-    <div class="step-card">
-        <div class="step-number">4</div>
-        <h4>Refine Search</h4>
-        <p>Adjust based on your results</p>
+    
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+            <div class="flashcard-front">
+                <div class="step-number">4</div>
+                <h4>Refine Search</h4>
+                <p>Adjust based on your results</p>
+                <span class="flashcard-hint">Click to flip</span>
+            </div>
+            <div class="flashcard-back">
+                <h4>Why It's Important</h4>
+                <p>Your first search is rarely perfect. Refining helps you narrow down or expand results based on what you find, leading to better quality sources.</p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -543,7 +785,17 @@
 
 <!-- BUILD YOUR PROMPT SECTION -->
 <h2>🎯 Build Your Strong Search Prompt</h2>
-<p>A well-structured prompt has <strong>four key elements</strong>. Use the activities below to build prompts for different search tasks. Each activity guides you through adding these elements:</p>
+<p>A well-structured prompt <strong>may have four key elements</strong>. Use the activities below to build prompts for different search tasks.</p>
+
+<div class="how-it-works">
+    <h3>📖 How These Activities Work</h3>
+    <ol>
+        <li><strong>Type your information</strong> in each of the four boxes (Goal, Context, Expectations, Limits)</li>
+        <li><strong>Watch your prompt build</strong> automatically in the green "Complete Prompt" box</li>
+        <li><strong>Click the green box</strong> to copy your complete prompt</li>
+        <li><strong>Paste into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a></strong> and see the response!</li>
+    </ol>
+</div>
 
 <div class="accordion">
     
@@ -594,7 +846,7 @@
             
             <div class="output-section">
                 <h4>✨ Your Complete Prompt</h4>
-                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into Copilot!</p>
+                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
                 <div class="output-box empty" id="output1" onclick="copyPrompt('output1', 'goal1', 'context1', 'expectations1', 'limits1')">
                     <span class="copy-hint" id="copyHint1" style="display:none;">📋 Click to copy</span>
                     <span id="outputText1">Start typing in the fields above to build your prompt...</span>
@@ -653,7 +905,7 @@
             
             <div class="output-section">
                 <h4>✨ Your Complete Prompt</h4>
-                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into Copilot!</p>
+                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
                 <div class="output-box empty" id="output2" onclick="copyPrompt('output2', 'goal2', 'context2', 'expectations2', 'limits2')">
                     <span class="copy-hint" id="copyHint2" style="display:none;">📋 Click to copy</span>
                     <span id="outputText2">Start typing in the fields above to build your prompt...</span>
@@ -665,10 +917,79 @@
         </div>
     </div>
     
-    <!-- ACTIVITY 3: Refine Your Search -->
+    <!-- ACTIVITY 3: Try Your Search -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <h3>🔧 Activity 3: Get Advice to Refine Your Search</h3>
+            <h3>🔍 Activity 3: Try Your Search in the Library</h3>
+            <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-content">
+            <p>Now it's time to <strong>put your search string into action!</strong> Use one of the AUT Library search options below to test your search and see what results you get.</p>
+            
+            <div class="library-search-section">
+                <h4>🏛️ Choose Where to Search</h4>
+                <p>Click on an option below to open the AUT Library and try your search string:</p>
+                
+                <div class="library-header">
+                    <span style="font-size: 28px;">📚</span>
+                    <div>
+                        <h5>TE MĀTĀPUNA</h5>
+                        <span style="font-size: 12px;">LIBRARY & LEARNING SERVICES</span>
+                    </div>
+                </div>
+                
+                <div class="library-options">
+                    <a href="https://library.aut.ac.nz/" target="_blank" class="library-option">
+                        <span class="library-option-icon">🔎</span>
+                        <div class="library-option-text">
+                            <h6>Library Search</h6>
+                            <p>Search for articles, books, e-books & more</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://library.aut.ac.nz/" target="_blank" class="library-option">
+                        <span class="library-option-icon">📊</span>
+                        <div class="library-option-text">
+                            <h6>Databases</h6>
+                            <p>Find subject-specific databases for your field of study</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://library.aut.ac.nz/" target="_blank" class="library-option">
+                        <span class="library-option-icon">🎓</span>
+                        <div class="library-option-text">
+                            <h6>AUT Google Scholar</h6>
+                            <p>Search scholarly literature with AUT access</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="search-tips">
+                    <h5>💡 Tips for Testing Your Search</h5>
+                    <ul>
+                        <li><strong>Copy your search string</strong> from Activity 2 (the one <a href="https://copilot.microsoft.com" target="_blank">Copilot</a> helped you create)</li>
+                        <li><strong>Paste it</strong> into the search box</li>
+                        <li><strong>Note your results:</strong> How many did you get? Are they relevant?</li>
+                        <li><strong>Too many or too few?</strong> Move to Activity 4 for help refining!</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="input-section">
+                <label for="searchNotes">📝 Record Your Search Results</label>
+                <p class="description">Take notes on what happened when you tried your search:</p>
+                <textarea id="searchNotes" placeholder="Example: I searched in Library Search and got 2,847 results. Many seem relevant but there are too many to look through. Some results are about adults, not teenagers."></textarea>
+                <div class="example-box">
+                    <strong>💡 Note:</strong> How many results? Are they relevant? What's working? What's not?
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ACTIVITY 4: Refine Your Search -->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>🔧 Activity 4: Get Advice to Refine Your Search</h3>
             <span class="accordion-icon">+</span>
         </div>
         <div class="accordion-content">
@@ -712,7 +1033,7 @@
             
             <div class="output-section">
                 <h4>✨ Your Complete Prompt</h4>
-                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into Copilot!</p>
+                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
                 <div class="output-box empty" id="output3" onclick="copyPrompt('output3', 'goal3', 'context3', 'expectations3', 'limits3')">
                     <span class="copy-hint" id="copyHint3" style="display:none;">📋 Click to copy</span>
                     <span id="outputText3">Start typing in the fields above to build your prompt...</span>
@@ -745,8 +1066,8 @@
     <div class="support-box">
         <h3>🎓 Need More Support?</h3>
         <p>Whether it's your search strategy or your assignment, we're here to help!</p>
-        <a href="https://library.aut.ac.nz/how-to-guides" target="_blank">📚 Visit YLOC Learning Resources</a>
-        <a href="https://library.aut.ac.nz/appointments" target="_blank">📅 Book a One-to-One Appointment</a>
+        <a href="https://library.aut.ac.nz/how-to-guides" target="_blank" class="button">📚 Visit YLOC Learning Resources</a>
+        <a href="https://library.aut.ac.nz/workshops/one-to-one-appointments" target="_blank" class="button">📅 Book a One-to-One Appointment</a>
     </div>
 </div>
 
