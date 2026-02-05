@@ -77,25 +77,66 @@
             color: #0d47a1;
         }
         
-        /* Important Notice */
-        .important-notice {
-            background-color: #fff8e1;
-            border: 2px solid #ffc107;
-            border-radius: 12px;
-            padding: 25px 35px;
+        /* Important Notice Accordion */
+        .notice-accordion {
             margin: 25px 0;
         }
         
-        .important-notice h3 {
+        .notice-accordion-item {
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        
+        .notice-accordion-header {
+            background-color: #fff8e1;
+            padding: 18px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        
+        .notice-accordion-header:hover {
+            background-color: #ffecb3;
+        }
+        
+        .notice-accordion-header h3 {
+            margin: 0;
+            font-size: 18px;
             color: #f57c00;
-            margin-top: 0;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .important-notice .icon {
+        .notice-accordion-header .icon {
             font-size: 24px;
+        }
+        
+        .notice-accordion-icon {
+            font-size: 24px;
+            color: #f57c00;
+            transition: transform 0.3s;
+        }
+        
+        .notice-accordion-item.active .notice-accordion-icon {
+            transform: rotate(45deg);
+        }
+        
+        .notice-accordion-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #fff8e1;
+        }
+        
+        .notice-accordion-item.active .notice-accordion-content {
+            padding: 25px 30px;
+            max-height: 2000px;
         }
         
         .highlight-box {
@@ -635,6 +676,10 @@
                 font-size: 16px;
             }
             
+            .notice-accordion-header h3 {
+                font-size: 16px;
+            }
+            
             .output-box {
                 padding: 15px;
             }
@@ -667,29 +712,35 @@
     <p>📑 <a href="[YOUR_SLIDES_LINK_HERE]" target="_blank">View the workshop slides</a> for more background on how GenAI works and its role in academic research.</p>
 </div>
 
-<!-- IMPORTANT NOTICE -->
-<div class="important-notice">
-    <h3><span class="icon">⚠️</span> Before You Start: Using GenAI Effectively</h3>
-    
-    <p>GenAI tools like <a href="https://copilot.microsoft.com" target="_blank">Copilot</a> can be <strong>useful assistants</strong> for your learning—but only if <strong>you're in control</strong>. This means knowing:</p>
-    <ul>
-        <li>✅ What tasks to delegate to AI</li>
-        <li>✅ How to communicate what you want clearly</li>
-        <li>✅ When AI is helpful vs. when it's not</li>
-    </ul>
-    
-    <p class="warning-text"><strong>Why you shouldn't use GenAI to find your academic sources:</strong></p>
-    <ul>
-        <li><strong>🎭 It can hallucinate</strong> – GenAI sometimes invents citations that look real but don't exist!</li>
-        <li><strong>🔒 Limited access</strong> – It can't access library subscription databases where the best academic sources live.</li>
-        <li><strong>⚖️ Reinforces bias</strong> – AI learns from existing content, which often reflects dominant cultural perspectives. For example, when searching for information about "family structures" or "community leadership," GenAI may prioritise Western frameworks and overlook Māori concepts like whānau, hapū, and iwi structures, or Pacific models of collective decision-making—limiting the diversity and cultural relevance of your research.</li>
-    </ul>
-    
-    <div class="highlight-box">
-        <p><strong>💡 Think about it:</strong> Why use an unreliable tool to find something as important as your academic sources when you have access to <strong>real</strong>, <strong>peer-reviewed</strong>, <strong>credible</strong> sources through <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>—just by being an AUT student?</p>
+<!-- IMPORTANT NOTICE ACCORDION -->
+<div class="notice-accordion">
+    <div class="notice-accordion-item" id="noticeAccordion">
+        <div class="notice-accordion-header" onclick="toggleNoticeAccordion()">
+            <h3><span class="icon">⚠️</span> Before You Start: Using GenAI Effectively</h3>
+            <span class="notice-accordion-icon">+</span>
+        </div>
+        <div class="notice-accordion-content">
+            <p>GenAI tools like <a href="https://copilot.microsoft.com" target="_blank">Copilot</a> can be <strong>useful assistants</strong> for your learning—but only if <strong>you're in control</strong>. This means knowing:</p>
+            <ul>
+                <li>✅ What tasks to delegate to AI</li>
+                <li>✅ How to communicate what you want clearly</li>
+                <li>✅ When AI is helpful vs. when it's not</li>
+            </ul>
+            
+            <p class="warning-text"><strong>Why you shouldn't use GenAI to find your academic sources:</strong></p>
+            <ul>
+                <li><strong>🎭 It can hallucinate</strong> – GenAI sometimes invents citations that look real but don't exist!</li>
+                <li><strong>🔒 Limited access</strong> – It can't access library subscription databases where the best academic sources live.</li>
+                <li><strong>⚖️ Reinforces bias</strong> – AI learns from existing content, which often reflects dominant cultural perspectives. For example, when searching for information about "family structures" or "community leadership," GenAI may prioritise Western frameworks and overlook Māori concepts like whānau, hapū, and iwi structures, or Pacific models of collective decision-making—limiting the diversity and cultural relevance of your research.</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p><strong>💡 Think about it:</strong> Why use an unreliable tool to find something as important as your academic sources when you have access to <strong>real</strong>, <strong>peer-reviewed</strong>, <strong>credible</strong> sources through <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>—just by being an AUT student?</p>
+            </div>
+            
+            <p><strong>However!</strong> GenAI <em>can</em> support you in making your search process more efficient. In this workshop, you'll learn how by creating <strong>strong search prompts</strong>.</p>
+        </div>
     </div>
-    
-    <p><strong>However!</strong> GenAI <em>can</em> support you in making your search process more efficient. In this workshop, you'll learn how by creating <strong>strong search prompts</strong>.</p>
 </div>
 
 <!-- SEARCH STRATEGY STEPS -->
@@ -1029,12 +1080,18 @@
     // Google Apps Script URL
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZ76QHe2AN3H-Jp-C8m9P1N25QED-jbAiNNb3gsZwQn-Wm6CU7f3DJN6bg19peNxQpow/exec';
     
-    // Accordion functionality
+    // Notice Accordion functionality
+    function toggleNoticeAccordion() {
+        const item = document.getElementById('noticeAccordion');
+        item.classList.toggle('active');
+    }
+    
+    // Activity Accordion functionality
     function toggleAccordion(header) {
         const item = header.parentElement;
         const wasActive = item.classList.contains('active');
         
-        // Close all accordions
+        // Close all activity accordions
         document.querySelectorAll('.accordion-item').forEach(function(el) {
             el.classList.remove('active');
         });
