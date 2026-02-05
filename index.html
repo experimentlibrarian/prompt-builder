@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Builder - Library Workshop</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #fafafa;
+        }
+        
+        h2 {
+            color: #1565c0;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1565c0;
+        }
+        
+        h3 {
+            color: #1976d2;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .intro {
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+        }
+        
+        .intro p {
+            margin: 0;
+        }
+        
+        .input-section {
+            background-color: #ffffff;
+            border: 2px solid #1976d2;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .input-section label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #1976d2;
+            font-size: 18px;
+        }
+        
+        .input-section .description {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .input-section textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .input-section textarea:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+        }
+        
+        .input-section textarea::placeholder {
+            color: #999;
+        }
+        
+        .example-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 12px 15px;
+            margin-top: 12px;
+            font-size: 14px;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .example-box strong {
+            color: #e65100;
+        }
+        
+        .example-box ul {
+            margin: 8px 0 0 0;
+            padding-left: 20px;
+        }
+        
+        .example-box li {
+            margin-bottom: 4px;
+        }
+        
+        .output-section {
+            background-color: #e8f5e9;
+            border: 2px solid #2e7d32;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .output-section h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        
+        .output-section .description {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .output-box {
+            background-color: #fff;
+            border: 2px dashed #2e7d32;
+            border-radius: 4px;
+            padding: 20px;
+            min-height: 120px;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.7;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        
+        .output-box:hover {
+            background-color: #f1f8e9;
+            border-color: #1b5e20;
+        }
+        
+        .output-box.empty {
+            color: #999;
+            font-family: inherit;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .copy-hint {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 12px;
+            color: #2e7d32;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #e8f5e9;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .output-box:hover .copy-hint {
+            background-color: #c8e6c9;
+        }
+        
+        .copied-message {
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            z-index: 1000;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .copied-message.visible {
+            display: block;
+            animation: fadeInOut 2.5s ease-in-out;
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        .instructions {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .instructions h4 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+        
+        .instructions ol {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .character-count {
+            font-size: 12px;
+            color: #999;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        .privacy-notice {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .privacy-notice strong {
+            color: #333;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            
+            .input-section,
+            .output-section {
+                padding: 15px;
+            }
+            
+            .output-box {
+                padding: 15px;
+                font-size: 14px;
+            }
+            
+            .copy-hint {
+                position: static;
+                display: block;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="copied-message" id="copiedMessage">✓ Copied to clipboard!</div>
+
+<h2>🛠️ Build Your Prompt</h2>
+
+<div class="intro">
+    <p>Enter your <strong>goal</strong> and <strong>context</strong> below. Your complete prompt will automatically appear at the bottom, ready to copy and paste into Copilot or another GenAI tool!</p>
+</div>
+
+<div class="input-section">
+    <label for="goalInput">🎯 Part 1: Your Goal</label>
+    <p class="description">What do you want the AI to help you with? Be specific about the task.</p>
+    <textarea 
+        id="goalInput" 
+        placeholder="Example: Help me identify the main concepts and key search terms for my research topic"
+    ></textarea>
+    <div class="character-count"><span id="goalCount">0</span> characters</div>
+    
+    <div class="example-box">
+        <strong>💡 Example goals:</strong>
+        <ul>
+            <li>"Help me identify the main concepts in my research topic"</li>
+            <li>"Generate a list of synonyms for my search terms"</li>
+            <li>"Explain how Boolean operators work in database searches"</li>
+            <li>"Help me narrow down my search results"</li>
+        </ul>
+    </div>
+</div>
+
+<div class="input-section">
+    <label for="contextInput">📚 Part 2: Your Context</label>
+    <p class="description">Give the AI the background information it needs - your topic, course, level, requirements, etc.</p>
+    <textarea 
+        id="contextInput" 
+        placeholder="Example: My research topic is the impact of social media on teenage mental health. This is for a second-year Psychology assignment. I need to find peer-reviewed sources from the last 5 years."
+    ></textarea>
+    <div class="character-count"><span id="contextCount">0</span> characters</div>
+    
+    <div class="example-box">
+        <strong>💡 Example context:</strong>
+        <ul>
+            <li>"My research topic is [your topic]"</li>
+            <li>"This is for a [course name] assignment at [level]"</li>
+            <li>"I need to find [type of sources] from [timeframe]"</li>
+            <li>"I'm focusing specifically on [region/aspect/population]"</li>
+        </ul>
+    </div>
+</div>
+
+<div class="output-section">
+    <h3>✨ Your Complete Prompt</h3>
+    <p class="description">Your prompt updates automatically as you type above. Click the box below to copy it!</p>
+    <div class="output-box empty" id="outputBox">
+        <span class="copy-hint" id="copyHint">📋 Click to copy</span>
+        <span id="outputText">Start typing in the fields above to build your prompt...</span>
+    </div>
+    <div class="character-count">Total: <span id="totalCount">0</span> characters</div>
+    
+    <div class="privacy-notice">
+        <strong>📊 Note:</strong> When you click to copy, your prompt is anonymously logged to help us improve this workshop. No personal information is collected.
+    </div>
+</div>
+
+<div class="instructions">
+    <h4>📋 How to use your prompt:</h4>
+    <ol>
+        <li><strong>Click the green box above</strong> to copy your complete prompt</li>
+        <li><strong>Open Copilot</strong> (or another GenAI tool)</li>
+        <li><strong>Paste your prompt</strong> (Ctrl+V / Cmd+V)</li>
+        <li><strong>Review the response</strong> and ask follow-up questions if needed</li>
+    </ol>
+</div>
+
+<script>
+    // ⚠️ IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyf3WYiw-iawN36Qsudrt0Z7RzVfUfDkpZsTEYpGnxR8kdAa8apLvBlR8DBhhF86KxoOg/exec';
+    
+    const goalInput = document.getElementById('goalInput');
+    const contextInput = document.getElementById('contextInput');
+    const outputBox = document.getElementById('outputBox');
+    const outputText = document.getElementById('outputText');
+    const copyHint = document.getElementById('copyHint');
+    const copiedMessage = document.getElementById('copiedMessage');
+    const totalCount = document.getElementById('totalCount');
+    const goalCount = document.getElementById('goalCount');
+    const contextCount = document.getElementById('contextCount');
+
+    function updateCharCount(input, countElement) {
+        countElement.textContent = input.value.length;
+    }
+
+    function updatePrompt() {
+        const goal = goalInput.value.trim();
+        const context = contextInput.value.trim();
+        
+        updateCharCount(goalInput, goalCount);
+        updateCharCount(contextInput, contextCount);
+        
+        if (!goal && !context) {
+            outputText.textContent = 'Start typing in the fields above to build your prompt...';
+            outputBox.classList.add('empty');
+            copyHint.style.display = 'none';
+            totalCount.textContent = '0';
+            return;
+        }
+        
+        outputBox.classList.remove('empty');
+        copyHint.style.display = 'block';
+        
+        let prompt = '';
+        
+        if (goal) {
+            prompt += goal;
+            if (!/[.!?]$/.test(goal)) {
+                prompt += '.';
+            }
+        }
+        
+        if (context) {
+            if (prompt) prompt += ' ';
+            prompt += context;
+            if (!/[.!?]$/.test(context)) {
+                prompt += '.';
+            }
+        }
+        
+        outputText.textContent = prompt;
+        totalCount.textContent = prompt.length;
+    }
+
+    function sendToGoogleSheets(goal, context, completePrompt) {
+        // Only send if we have a valid URL configured
+        if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyf3WYiw-iawN36Qsudrt0Z7RzVfUfDkpZsTEYpGnxR8kdAa8apLvBlR8DBhhF86KxoOg/exec') {
+            console.log('Google Sheets logging not configured');
+            return;
+        }
+        
+        const data = {
+            goal: goal,
+            context: context,
+            completePrompt: completePrompt
+        };
+        
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(function() {
+            console.log('Data logged successfully');
+        })
+        .catch(function(error) {
+            console.log('Logging error (non-critical):', error);
+        });
+    }
+
+    function copyPrompt() {
+        const text = outputText.textContent;
+        const goal = goalInput.value.trim();
+        const context = contextInput.value.trim();
+        
+        if (text === 'Start typing in the fields above to build your prompt...') {
+            return;
+        }
+        
+        // Copy to clipboard
+        navigator.clipboard.writeText(text).then(function() {
+            showCopiedMessage();
+            // Send data to Google Sheets
+            sendToGoogleSheets(goal, context, text);
+        }).catch(function() {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showCopiedMessage();
+            // Send data to Google Sheets
+            sendToGoogleSheets(goal, context, text);
+        });
+    }
+
+    function showCopiedMessage() {
+        copiedMessage.classList.remove('visible');
+        void copiedMessage.offsetWidth;
+        copiedMessage.classList.add('visible');
+        setTimeout(function() {
+            copiedMessage.classList.remove('visible');
+        }, 2500);
+    }
+
+    goalInput.addEventListener('input', updatePrompt);
+    contextInput.addEventListener('input', updatePrompt);
+    outputBox.addEventListener('click', copyPrompt);
+    
+    updatePrompt();
+</script>
+
+</body>
+</html>
