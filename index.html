@@ -347,7 +347,7 @@
 
 <script>
     // ⚠️ IMPORTANT: Replace this URL with your Google Apps Script Web App URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyHE5OsQplExuLKd0jkYeCo-lmyeRGDONuliWtXPsGb1E1CM8NN9pZaw0lroKR8e1qc/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZ76QHe2AN3H-Jp-C8m9P1N25QED-jbAiNNb3gsZwQn-Wm6CU7f3DJN6bg19peNxQpow/exec';
     
     const goalInput = document.getElementById('goalInput');
     const contextInput = document.getElementById('contextInput');
@@ -404,7 +404,7 @@
 
     function sendToGoogleSheets(goal, context, completePrompt) {
         // Only send if we have a valid URL configured
-        if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyHE5OsQplExuLKd0jkYeCo-lmyeRGDONuliWtXPsGb1E1CM8NN9pZaw0lroKR8e1qc/exec') {
+        if (GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxZ76QHe2AN3H-Jp-C8m9P1N25QED-jbAiNNb3gsZwQn-Wm6CU7f3DJN6bg19peNxQpow/exec') {
             console.log('Google Sheets logging not configured');
             return;
         }
