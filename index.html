@@ -29,7 +29,7 @@
         
         h2 {
             color: #1976d2;
-            margin-top: 35px;
+            margin-top: 45px;
             margin-bottom: 15px;
             padding-bottom: 8px;
             border-bottom: 2px solid #e3f2fd;
@@ -54,7 +54,7 @@
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             border-radius: 12px;
             padding: 25px 35px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             border-left: 5px solid #1976d2;
         }
         
@@ -68,6 +68,10 @@
             margin-bottom: 15px;
         }
         
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+        
         .intro-box a {
             color: #1565c0;
             font-weight: bold;
@@ -77,9 +81,86 @@
             color: #0d47a1;
         }
         
+        .workflow-note {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .workflow-note span {
+            font-weight: bold;
+            color: #1565c0;
+        }
+        
+        .workflow-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .workflow-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #e3f2fd;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .workflow-arrow {
+            color: #1976d2;
+            font-weight: bold;
+        }
+        
+        /* Chevron Icon Styles */
+        .chevron-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #1976d2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .chevron-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .notice-chevron-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #f57c00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .notice-chevron-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+            transition: transform 0.3s ease;
+        }
+        
         /* Important Notice Accordion */
         .notice-accordion {
-            margin: 25px 0;
+            margin: 35px 0;
         }
         
         .notice-accordion-item {
@@ -116,14 +197,8 @@
             font-size: 24px;
         }
         
-        .notice-accordion-icon {
-            font-size: 24px;
-            color: #f57c00;
-            transition: transform 0.3s;
-        }
-        
-        .notice-accordion-item.active .notice-accordion-icon {
-            transform: rotate(45deg);
+        .notice-accordion-item.active .notice-chevron-icon svg {
+            transform: rotate(180deg);
         }
         
         .notice-accordion-content {
@@ -263,13 +338,13 @@
         
         /* Accordion Styles */
         .accordion {
-            margin: 20px 0;
+            margin: 25px 0;
         }
         
         .accordion-item {
             border: 2px solid #1976d2;
             border-radius: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             overflow: hidden;
             background-color: #fff;
         }
@@ -294,14 +369,8 @@
             color: #1565c0;
         }
         
-        .accordion-icon {
-            font-size: 24px;
-            color: #1976d2;
-            transition: transform 0.3s;
-        }
-        
-        .accordion-item.active .accordion-icon {
-            transform: rotate(45deg);
+        .accordion-item.active .chevron-icon svg {
+            transform: rotate(180deg);
         }
         
         .accordion-content {
@@ -322,7 +391,7 @@
             border: 2px solid #4caf50;
             border-radius: 12px;
             padding: 25px 30px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         
         .how-it-works h3 {
@@ -346,7 +415,7 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 25px 30px;
-            margin: 15px 0;
+            margin: 18px 0;
         }
         
         .input-section label {
@@ -413,7 +482,7 @@
             border: 2px solid #2e7d32;
             border-radius: 12px;
             padding: 25px 30px;
-            margin: 20px 0;
+            margin: 25px 0;
         }
         
         .output-section h4 {
@@ -502,7 +571,7 @@
             border: 2px solid #8b7355;
             border-radius: 12px;
             padding: 30px;
-            margin: 20px 0;
+            margin: 25px 0;
         }
         
         .library-search-section h4 {
@@ -581,7 +650,7 @@
             background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             border-radius: 12px;
             padding: 30px 35px;
-            margin-top: 35px;
+            margin-top: 45px;
             border-left: 5px solid #2e7d32;
         }
         
@@ -595,7 +664,7 @@
             background-color: #fff;
             border-radius: 8px;
             padding: 25px 30px;
-            margin: 15px 0;
+            margin: 20px 0;
         }
         
         .tip-box h4 {
@@ -609,7 +678,7 @@
             border: 2px solid #1976d2;
             border-radius: 12px;
             padding: 30px;
-            margin-top: 20px;
+            margin-top: 25px;
             text-align: center;
         }
         
@@ -658,6 +727,11 @@
             margin-top: 5px;
         }
         
+        /* Section Spacing */
+        .section-spacer {
+            height: 20px;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             body {
@@ -690,6 +764,15 @@
                 text-align: center;
                 margin-bottom: 10px;
             }
+            
+            .workflow-note {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .workflow-icons {
+                margin-top: 10px;
+            }
         }
         
         @media (max-width: 500px) {
@@ -710,6 +793,17 @@
     <h2>👋 Welcome to the Hands-On Workshop!</h2>
     <p>This is the practical part of our workshop where you'll learn to create effective prompts that help you search for academic information more efficiently.</p>
     <p>📑 <a href="[YOUR_SLIDES_LINK_HERE]" target="_blank">View the workshop slides</a> for more background on how GenAI works and its role in academic research.</p>
+    
+    <div class="workflow-note">
+        <span>During this workshop, you'll move between:</span>
+        <div class="workflow-icons">
+            <div class="workflow-item">📄 This page</div>
+            <span class="workflow-arrow">↔</span>
+            <div class="workflow-item">💬 <a href="https://copilot.microsoft.com" target="_blank">Copilot</a></div>
+            <span class="workflow-arrow">↔</span>
+            <div class="workflow-item">📚 <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a></div>
+        </div>
+    </div>
 </div>
 
 <!-- IMPORTANT NOTICE ACCORDION -->
@@ -717,7 +811,11 @@
     <div class="notice-accordion-item" id="noticeAccordion">
         <div class="notice-accordion-header" onclick="toggleNoticeAccordion()">
             <h3><span class="icon">⚠️</span> Before You Start: Using GenAI Effectively</h3>
-            <span class="notice-accordion-icon">+</span>
+            <div class="notice-chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
         </div>
         <div class="notice-accordion-content">
             <p>GenAI tools like <a href="https://copilot.microsoft.com" target="_blank">Copilot</a> can be <strong>useful assistants</strong> for your learning—but only if <strong>you're in control</strong>. This means knowing:</p>
@@ -813,6 +911,8 @@
 
 <p>Now let's see how GenAI can <strong>support each of these steps</strong> by helping you create effective prompts!</p>
 
+<div class="section-spacer"></div>
+
 <!-- BUILD YOUR PROMPT SECTION -->
 <h2>🎯 Build Your Strong Search Prompt</h2>
 <p>A well-structured prompt <strong>may have four key elements</strong>. Use the activities below to build prompts for different search tasks.</p>
@@ -833,7 +933,11 @@
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <h3>📝 Activity 1: Identify Keywords and Related Terms</h3>
-            <span class="accordion-icon">+</span>
+            <div class="chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
         </div>
         <div class="accordion-content">
             <p>Use this prompt to help you identify the main concepts in your research topic and discover alternative keywords.</p>
@@ -892,7 +996,11 @@
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <h3>🔗 Activity 2: Build a Search String</h3>
-            <span class="accordion-icon">+</span>
+            <div class="chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
         </div>
         <div class="accordion-content">
             <p>Use this prompt to combine your concepts and keywords into a search string using Boolean operators (AND, OR, NOT), phrase searching (""), and truncation (*).</p>
@@ -951,7 +1059,11 @@
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <h3>🔍 Activity 3: Try Your Search in the Library</h3>
-            <span class="accordion-icon">+</span>
+            <div class="chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
         </div>
         <div class="accordion-content">
             <p>Now it's time to <strong>put your search string into action!</strong> Use the AUT Library to test your search and see what results you get.</p>
@@ -995,7 +1107,11 @@
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
             <h3>🔧 Activity 4: Get Advice to Refine Your Search</h3>
-            <span class="accordion-icon">+</span>
+            <div class="chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
         </div>
         <div class="accordion-content">
             <p>Getting too many, too few, or irrelevant results? Use this prompt to get advice on refining your search strategy.</p>
@@ -1054,10 +1170,10 @@
 
 <!-- FINAL SECTION -->
 <div class="final-section">
-    <h2>💬 Remember: Prompting is a Conversation</h2>
+    <h2>💬 Remember: Prompting is Like a Conversation</h2>
     
     <div class="tip-box">
-        <h4>You Don't Always Need All Four Elements!</h4>
+        <h4>You Don't Always Need All Four Elements in a Single Prompt!</h4>
         <p>Through your conversation with GenAI, you can use the four elements <strong>flexibly</strong>:</p>
         <ul>
             <li>Start with just a <strong>goal</strong> and see what response you get</li>
