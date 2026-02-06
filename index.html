@@ -8,7 +8,6 @@
         * {
             box-sizing: border-box;
         }
-        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
@@ -18,15 +17,14 @@
             color: #333;
             background-color: #fafafa;
         }
-        
         h1 {
             color: #1565c0;
             margin-top: 0;
             padding-bottom: 10px;
             border-bottom: 3px solid #1565c0;
             font-size: 28px;
+            margin-bottom: 60px;
         }
-        
         h2 {
             color: #1976d2;
             margin-top: 60px;
@@ -34,62 +32,50 @@
             padding-bottom: 8px;
             border-bottom: 2px solid #e3f2fd;
         }
-        
         h3 {
             color: #1976d2;
             margin-top: 25px;
             margin-bottom: 10px;
         }
-        
         a {
             color: #1565c0;
         }
-        
         a:hover {
             color: #0d47a1;
         }
-        
-        /* Intro Section */
+        /* Intro Section - UPDATED: Changed to full blue border */
         .intro-box {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             border-radius: 12px;
             padding: 25px 35px;
             margin-bottom: 35px;
-            border-left: 5px solid #1976d2;
+            border: 2px solid #1976d2; /* CHANGED: Full blue border to match accordion items */
         }
-        
         .intro-box h2 {
             margin-top: 0;
             border-bottom: none;
             color: #0d47a1;
         }
-        
         .intro-box p {
             margin-bottom: 15px;
         }
-        
         .intro-box p:last-child {
             margin-bottom: 0;
         }
-        
         .intro-box ul {
             margin: 0;
             padding-left: 20px;
         }
-        
         .intro-box li {
             margin-bottom: 0;
         }
-        
         .intro-box a {
             color: #1565c0;
             font-weight: bold;
         }
-        
         .intro-box a:hover {
             color: #0d47a1;
         }
-        
         /* Chevron Icon Styles */
         .chevron-icon {
             width: 32px;
@@ -102,14 +88,12 @@
             transition: transform 0.3s ease;
             flex-shrink: 0;
         }
-        
         .chevron-icon svg {
             width: 16px;
             height: 16px;
             fill: white;
             transition: transform 0.3s ease;
         }
-        
         .notice-chevron-icon {
             width: 32px;
             height: 32px;
@@ -121,26 +105,22 @@
             transition: transform 0.3s ease;
             flex-shrink: 0;
         }
-        
         .notice-chevron-icon svg {
             width: 16px;
             height: 16px;
             fill: white;
             transition: transform 0.3s ease;
         }
-        
         /* Important Notice Accordion */
         .notice-accordion {
             margin: 35px 0 60px 0;
         }
-        
         .notice-accordion-item {
             border: 2px solid #ffc107;
             border-radius: 12px;
             overflow: hidden;
             background-color: #fff;
         }
-        
         .notice-accordion-header {
             background-color: #fff8e1;
             padding: 18px 30px;
@@ -150,11 +130,9 @@
             align-items: center;
             transition: background-color 0.2s;
         }
-        
         .notice-accordion-header:hover {
             background-color: #ffecb3;
         }
-        
         .notice-accordion-header h3 {
             margin: 0;
             font-size: 18px;
@@ -163,15 +141,12 @@
             align-items: center;
             gap: 10px;
         }
-        
         .notice-accordion-header .icon {
             font-size: 24px;
         }
-        
         .notice-accordion-item.active .notice-chevron-icon svg {
             transform: rotate(180deg);
         }
-        
         .notice-accordion-content {
             padding: 0 30px;
             max-height: 0;
@@ -179,12 +154,10 @@
             transition: max-height 0.3s ease, padding 0.3s ease;
             background-color: #fff8e1;
         }
-        
         .notice-accordion-item.active .notice-accordion-content {
             padding: 25px 30px;
             max-height: 2000px;
         }
-        
         .highlight-box {
             background-color: #e8f5e9;
             border-left: 4px solid #4caf50;
@@ -192,16 +165,13 @@
             margin: 20px 0;
             border-radius: 0 8px 8px 0;
         }
-        
         .highlight-box strong {
             color: #2e7d32;
         }
-        
         .warning-text {
             color: #d84315;
             font-weight: 500;
         }
-        
         /* Flashcard Styles */
         .flashcards-container {
             display: grid;
@@ -209,13 +179,11 @@
             gap: 15px;
             margin: 25px 0;
         }
-        
         .flashcard {
             perspective: 1000px;
             height: 200px;
             cursor: pointer;
         }
-        
         .flashcard-inner {
             position: relative;
             width: 100%;
@@ -224,12 +192,10 @@
             transition: transform 0.6s;
             transform-style: preserve-3d;
         }
-        
         .flashcard:hover .flashcard-inner,
         .flashcard.flipped .flashcard-inner {
             transform: rotateY(180deg);
         }
-        
         .flashcard-front, .flashcard-back {
             position: absolute;
             width: 100%;
@@ -244,16 +210,13 @@
             padding: 20px;
             border: 2px solid #1976d2;
         }
-        
         .flashcard-front {
             background-color: #fff;
         }
-        
         .flashcard-back {
             background-color: #e3f2fd;
             transform: rotateY(180deg);
         }
-        
         .step-number {
             background-color: #1976d2;
             color: white;
@@ -267,38 +230,32 @@
             font-weight: bold;
             font-size: 18px;
         }
-        
         .flashcard-front h4 {
             color: #1565c0;
             margin: 0 0 10px 0;
             font-size: 16px;
         }
-        
         .flashcard-front p {
             margin: 0;
             font-size: 14px;
             color: #666;
         }
-        
         .flashcard-back h4 {
             color: #0d47a1;
             margin: 0 0 10px 0;
             font-size: 15px;
         }
-        
         .flashcard-back p {
             margin: 0;
             font-size: 13px;
             color: #333;
             line-height: 1.5;
         }
-        
         .flashcard-hint {
             font-size: 11px;
             color: #999;
             margin-top: 8px;
         }
-        
         .click-instruction {
             text-align: center;
             color: #666;
@@ -306,17 +263,14 @@
             margin-bottom: 15px;
             font-style: italic;
         }
-        
         /* Section transition text */
         .section-transition {
             margin-bottom: 60px;
         }
-        
         /* Accordion Styles */
         .accordion {
             margin: 25px 0;
         }
-        
         .accordion-item {
             border: 2px solid #1976d2;
             border-radius: 12px;
@@ -324,7 +278,6 @@
             overflow: hidden;
             background-color: #fff;
         }
-        
         .accordion-header {
             background-color: #e3f2fd;
             padding: 18px 30px;
@@ -334,33 +287,27 @@
             align-items: center;
             transition: background-color 0.2s;
         }
-        
         .accordion-header:hover {
             background-color: #bbdefb;
         }
-        
         .accordion-header h3 {
             margin: 0;
             font-size: 18px;
             color: #1565c0;
         }
-        
         .accordion-item.active .chevron-icon svg {
             transform: rotate(180deg);
         }
-        
         .accordion-content {
             padding: 0 30px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
         }
-        
         .accordion-item.active .accordion-content {
             padding: 30px;
             max-height: 3000px;
         }
-        
         /* How It Works Box */
         .how-it-works {
             background-color: #e8f5e9;
@@ -369,22 +316,18 @@
             padding: 25px 30px;
             margin-bottom: 30px;
         }
-        
         .how-it-works h3 {
             color: #2e7d32;
             margin-top: 0;
             margin-bottom: 15px;
         }
-        
         .how-it-works ol {
             margin: 0;
             padding-left: 20px;
         }
-        
         .how-it-works li {
             margin-bottom: 8px;
         }
-        
         /* Input Sections */
         .input-section {
             background-color: #f5f5f5;
@@ -393,7 +336,6 @@
             padding: 25px 30px;
             margin: 18px 0;
         }
-        
         .input-section label {
             font-weight: bold;
             display: block;
@@ -401,13 +343,11 @@
             color: #1976d2;
             font-size: 16px;
         }
-        
         .input-section .description {
             margin: 0 0 12px 0;
             font-size: 14px;
             color: #666;
         }
-        
         .input-section textarea {
             width: 100%;
             padding: 14px;
@@ -419,17 +359,14 @@
             font-family: inherit;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
-        
         .input-section textarea:focus {
             outline: none;
             border-color: #1976d2;
             box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
         }
-        
         .input-section textarea::placeholder {
             color: #999;
         }
-        
         .example-box {
             background-color: #fff3e0;
             border-left: 4px solid #ff9800;
@@ -438,20 +375,16 @@
             font-size: 14px;
             border-radius: 0 6px 6px 0;
         }
-        
         .example-box strong {
             color: #e65100;
         }
-        
         .example-box ul {
             margin: 8px 0 0 0;
             padding-left: 20px;
         }
-        
         .example-box li {
             margin-bottom: 4px;
         }
-        
         /* Output Section */
         .output-section {
             background-color: #e8f5e9;
@@ -460,13 +393,11 @@
             padding: 25px 30px;
             margin: 25px 0;
         }
-        
         .output-section h4 {
             color: #2e7d32;
             margin-top: 0;
             margin-bottom: 10px;
         }
-        
         .output-box {
             background-color: #fff;
             border: 2px dashed #2e7d32;
@@ -480,12 +411,10 @@
             position: relative;
             transition: background-color 0.2s, border-color 0.2s;
         }
-        
         .output-box:hover {
             background-color: #f1f8e9;
             border-color: #1b5e20;
         }
-        
         .output-box.empty {
             color: #999;
             font-family: inherit;
@@ -495,7 +424,6 @@
             justify-content: center;
             text-align: center;
         }
-        
         .copy-hint {
             position: absolute;
             top: 8px;
@@ -508,11 +436,9 @@
             border-radius: 4px;
             font-weight: bold;
         }
-        
         .output-box:hover .copy-hint {
             background-color: #a5d6a7;
         }
-        
         /* Copied Message */
         .copied-message {
             background-color: #2e7d32;
@@ -528,19 +454,16 @@
             font-weight: bold;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
-        
         .copied-message.visible {
             display: block;
             animation: fadeInOut 2.5s ease-in-out;
         }
-        
         @keyframes fadeInOut {
             0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
             15% { opacity: 1; transform: translateX(-50%) translateY(0); }
             85% { opacity: 1; transform: translateX(-50%) translateY(0); }
             100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
         }
-        
         /* Library Search Section */
         .library-search-section {
             background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
@@ -549,12 +472,10 @@
             padding: 30px;
             margin: 25px 0;
         }
-        
         .library-search-section h4 {
             color: #5d4e37;
             margin-top: 0;
         }
-        
         .library-intro-text {
             background-color: #fff;
             border-radius: 8px;
@@ -562,15 +483,12 @@
             margin-bottom: 20px;
             border-left: 4px solid #1976d2;
         }
-        
         .library-intro-text p {
             margin: 0 0 10px 0;
         }
-        
         .library-intro-text p:last-child {
             margin-bottom: 0;
         }
-        
         .library-button {
             display: block;
             background-color: #8b7355;
@@ -584,13 +502,11 @@
             margin: 20px 0;
             transition: background-color 0.2s, transform 0.2s;
         }
-        
         .library-button:hover {
             background-color: #6d5a45;
             color: white;
             transform: translateY(-2px);
         }
-        
         .library-button span {
             display: block;
             font-size: 14px;
@@ -598,56 +514,47 @@
             margin-top: 8px;
             opacity: 0.9;
         }
-        
         .search-tips {
             background-color: #fff;
             border-radius: 8px;
             padding: 20px 25px;
             margin-top: 20px;
         }
-        
         .search-tips h5 {
             color: #5d4e37;
             margin: 0 0 12px 0;
         }
-        
         .search-tips ul {
             margin: 0;
             padding-left: 20px;
         }
-        
         .search-tips li {
             margin-bottom: 8px;
             font-size: 14px;
         }
-        
         /* Final Section */
         .final-section {
             background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             border-radius: 12px;
             padding: 30px 35px;
             margin-top: 60px;
-            border-left: 5px solid #2e7d32;
+            border: 2px solid #4caf50;
         }
-        
         .final-section h2 {
             color: #1b5e20;
             margin-top: 0;
             border-bottom: none;
         }
-        
         .tip-box {
             background-color: #fff;
             border-radius: 8px;
             padding: 25px 30px;
             margin: 20px 0;
         }
-        
         .tip-box h4 {
             color: #1976d2;
             margin-top: 0;
         }
-        
         /* Support Box */
         .support-box {
             background-color: #fff;
@@ -657,12 +564,10 @@
             margin-top: 25px;
             text-align: center;
         }
-        
         .support-box h3 {
             color: #1565c0;
             margin-top: 0;
         }
-        
         .support-box a.button {
             display: inline-block;
             background-color: #1976d2;
@@ -674,12 +579,10 @@
             margin: 10px 5px;
             transition: background-color 0.2s;
         }
-        
         .support-box a.button:hover {
             background-color: #1565c0;
             color: white;
         }
-        
         /* Privacy Notice */
         .privacy-notice {
             background-color: #f5f5f5;
@@ -690,37 +593,29 @@
             font-size: 12px;
             color: #666;
         }
-        
         .privacy-notice strong {
             color: #333;
         }
-        
         /* Responsive */
         @media (max-width: 768px) {
             body {
                 padding: 15px 8px;
             }
-            
             .flashcards-container {
                 grid-template-columns: 1fr 1fr;
             }
-            
             .flashcard {
                 height: 180px;
             }
-            
             .accordion-header h3 {
                 font-size: 16px;
             }
-            
             .notice-accordion-header h3 {
                 font-size: 16px;
             }
-            
             .output-box {
                 padding: 15px;
             }
-            
             .copy-hint {
                 position: static;
                 display: block;
@@ -728,7 +623,6 @@
                 margin-bottom: 10px;
             }
         }
-        
         @media (max-width: 500px) {
             .flashcards-container {
                 grid-template-columns: 1fr;
@@ -737,11 +631,8 @@
     </style>
 </head>
 <body>
-
 <div class="copied-message" id="copiedMessage">✓ Copied to clipboard!</div>
-
 <h1>🛠️ AI Toolkit: Designing Strong Search Prompts</h1>
-
 <!-- INTRO SECTION -->
 <div class="intro-box">
     <h2>👋 Welcome to the Hands-On Workshop!</h2>
@@ -751,7 +642,6 @@
         <li>During this workshop, you'll move between this page, <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>, and the <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>.</li>
     </ul>
 </div>
-
 <!-- IMPORTANT NOTICE ACCORDION -->
 <div class="notice-accordion">
     <div class="notice-accordion-item" id="noticeAccordion">
@@ -770,29 +660,23 @@
                 <li>✅ How to communicate what you want clearly</li>
                 <li>✅ When AI is helpful vs. when it's not</li>
             </ul>
-            
             <p class="warning-text"><strong>Why you shouldn't use GenAI to find your academic sources:</strong></p>
             <ul>
                 <li><strong>🎭 It can hallucinate</strong> – GenAI sometimes invents citations that look real but don't exist!</li>
                 <li><strong>🔒 Limited access</strong> – It can't access library subscription databases where the best academic sources live.</li>
-                <li><strong>⚖️ Reinforces bias</strong> – AI learns from existing content, which often reflects dominant cultural perspectives. For example, when searching for information about "family structures" or "community leadership," GenAI may prioritise Western frameworks and overlook Māori concepts like whānau, hapū, and iwi structures, or Pacific models of collective decision-making—limiting the diversity and cultural relevance of your research.</li>
+                <li><strong>⚖️ Reinforces bias</strong> – AI learns from existing content, which often reflects dominant cultural perspectives.</li>
             </ul>
-            
             <div class="highlight-box">
                 <p><strong>💡 Think about it:</strong> Why use an unreliable tool to find something as important as your academic sources when you have access to <strong>real</strong>, <strong>peer-reviewed</strong>, <strong>credible</strong> sources through <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>—just by being an AUT student?</p>
             </div>
-            
             <p><strong>However!</strong> GenAI <em>can</em> support you in making your search process more efficient. In this workshop, you'll learn how by creating <strong>strong search prompts</strong>.</p>
         </div>
     </div>
 </div>
-
 <!-- SEARCH STRATEGY STEPS -->
 <h2>📚 Steps to an Effective Search Strategy</h2>
 <p>Before using GenAI to help with prompts, understand the key steps of a good search strategy:</p>
-
 <p class="click-instruction">👆 <strong>Click on each card</strong> to discover why each step is important!</p>
-
 <div class="flashcards-container">
     <div class="flashcard" onclick="this.classList.toggle('flipped')">
         <div class="flashcard-inner">
@@ -808,7 +692,6 @@
             </div>
         </div>
     </div>
-    
     <div class="flashcard" onclick="this.classList.toggle('flipped')">
         <div class="flashcard-inner">
             <div class="flashcard-front">
@@ -823,7 +706,6 @@
             </div>
         </div>
     </div>
-    
     <div class="flashcard" onclick="this.classList.toggle('flipped')">
         <div class="flashcard-inner">
             <div class="flashcard-front">
@@ -838,7 +720,6 @@
             </div>
         </div>
     </div>
-    
     <div class="flashcard" onclick="this.classList.toggle('flipped')">
         <div class="flashcard-inner">
             <div class="flashcard-front">
@@ -854,13 +735,10 @@
         </div>
     </div>
 </div>
-
 <p class="section-transition">Now let's see how GenAI can <strong>support each of these steps</strong> by helping you create effective prompts!</p>
-
 <!-- BUILD YOUR PROMPT SECTION -->
 <h2>🎯 Build Your Strong Search Prompt</h2>
 <p>A well-structured prompt <strong>may have four key elements</strong>. Use the activities below to build prompts for different search tasks.</p>
-
 <div class="how-it-works">
     <h3>📖 How These Activities Work</h3>
     <ol>
@@ -870,9 +748,7 @@
         <li><strong>Paste into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a></strong> and see the response!</li>
     </ol>
 </div>
-
 <div class="accordion">
-    
     <!-- ACTIVITY 1: Identify Keywords -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
@@ -885,7 +761,6 @@
         </div>
         <div class="accordion-content">
             <p>Use this prompt to help you identify the main concepts in your research topic and discover alternative keywords.</p>
-            
             <div class="input-section">
                 <label for="goal1">🎯 Part 1: Your Goal</label>
                 <p class="description">What do you want the AI to help you with?</p>
@@ -894,7 +769,6 @@
                     <strong>💡 Try:</strong> "Identify the key concepts and suggest synonyms or related terms I can use to search academic databases"
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="context1">📚 Part 2: Your Context</label>
                 <p class="description">What's your topic and background?</p>
@@ -903,7 +777,6 @@
                     <strong>💡 Include:</strong> Your topic, your course/level, any specific focus areas
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="expectations1">📋 Part 3: Your Expectations</label>
                 <p class="description">How do you want the response formatted?</p>
@@ -912,7 +785,6 @@
                     <strong>💡 Specify:</strong> Format (list, table), number of items, level of detail
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="limits1">🚧 Part 4: Your Limits</label>
                 <p class="description">What constraints or boundaries do you want to set?</p>
@@ -921,7 +793,6 @@
                     <strong>💡 Try:</strong> "Wait for my confirmation before proceeding" or "Ask me questions if anything is unclear"
                 </div>
             </div>
-            
             <div class="output-section">
                 <h4>✨ Your Complete Prompt</h4>
                 <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
@@ -935,7 +806,6 @@
             </div>
         </div>
     </div>
-    
     <!-- ACTIVITY 2: Build Search String -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
@@ -948,7 +818,6 @@
         </div>
         <div class="accordion-content">
             <p>Use this prompt to combine your concepts and keywords into a search string using Boolean operators (AND, OR, NOT), phrase searching (""), and truncation (*).</p>
-            
             <div class="input-section">
                 <label for="goal2">🎯 Part 1: Your Goal</label>
                 <p class="description">What do you want the AI to help you with?</p>
@@ -957,7 +826,6 @@
                     <strong>💡 Try:</strong> "Create a search string that combines my concepts using AND, OR, phrase searching, and truncation"
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="context2">📚 Part 2: Your Context</label>
                 <p class="description">List your main concepts and the alternative terms you've identified</p>
@@ -966,7 +834,6 @@
                     <strong>💡 Include:</strong> Your main concepts from Activity 1 and their synonyms/alternatives
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="expectations2">📋 Part 3: Your Expectations</label>
                 <p class="description">How do you want the search string formatted?</p>
@@ -975,7 +842,6 @@
                     <strong>💡 Specify:</strong> Ready-to-use format, with or without explanation, variations for different databases
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="limits2">🚧 Part 4: Your Limits</label>
                 <p class="description">What constraints do you want to set?</p>
@@ -984,7 +850,6 @@
                     <strong>💡 Try:</strong> "Don't add terms I haven't mentioned" or "Check with me before finalising"
                 </div>
             </div>
-            
             <div class="output-section">
                 <h4>✨ Your Complete Prompt</h4>
                 <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
@@ -998,7 +863,6 @@
             </div>
         </div>
     </div>
-    
     <!-- ACTIVITY 3: Try Your Search -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
@@ -1011,20 +875,16 @@
         </div>
         <div class="accordion-content">
             <p>Now it's time to <strong>put your search string into action!</strong> Use the AUT Library to test your search and see what results you get.</p>
-            
             <div class="library-search-section">
                 <h4>🏛️ Search the AUT Library</h4>
-                
                 <div class="library-intro-text">
                     <p><strong>How it works:</strong> The button below takes you to the AUT Library homepage. Once there, you can choose to search using <strong>Library Search</strong>, <strong>Databases</strong>, or <strong>AUT Google Scholar</strong> from the left-side menu.</p>
                     <p>Copy your search string from Activity 2 and paste it into the search box to test your results!</p>
                 </div>
-                
                 <a href="https://library.aut.ac.nz/" target="_blank" class="library-button">
                     📚 Go to AUT Library
                     <span>Opens in a new tab — choose your search option from the left menu</span>
                 </a>
-                
                 <div class="search-tips">
                     <h5>💡 Tips for Testing Your Search</h5>
                     <ul>
@@ -1035,7 +895,6 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="searchNotes">📝 Record Your Search Results</label>
                 <p class="description">Take notes on what happened when you tried your search:</p>
@@ -1046,7 +905,6 @@
             </div>
         </div>
     </div>
-    
     <!-- ACTIVITY 4: Refine Your Search -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
@@ -1059,7 +917,6 @@
         </div>
         <div class="accordion-content">
             <p>Getting too many, too few, or irrelevant results? Use this prompt to get advice on refining your search strategy.</p>
-            
             <div class="input-section">
                 <label for="goal3">🎯 Part 1: Your Goal</label>
                 <p class="description">What problem are you trying to solve?</p>
@@ -1068,7 +925,6 @@
                     <strong>💡 Try:</strong> "I'm getting too many/too few/irrelevant results. Suggest how to improve my search."
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="context3">📚 Part 2: Your Context</label>
                 <p class="description">Describe your current search and what's happening</p>
@@ -1077,7 +933,6 @@
                     <strong>💡 Include:</strong> Your topic, current search string, what results you're getting, what's wrong with them
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="expectations3">📋 Part 3: Your Expectations</label>
                 <p class="description">What kind of advice do you want?</p>
@@ -1086,7 +941,6 @@
                     <strong>💡 Specify:</strong> Number of suggestions, level of explanation, focus on narrowing or broadening
                 </div>
             </div>
-            
             <div class="input-section">
                 <label for="limits3">🚧 Part 4: Your Limits</label>
                 <p class="description">What constraints do you want to set?</p>
@@ -1095,7 +949,6 @@
                     <strong>💡 Try:</strong> "Let me try each suggestion before giving more" or "Focus only on search string changes, not database filters"
                 </div>
             </div>
-            
             <div class="output-section">
                 <h4>✨ Your Complete Prompt</h4>
                 <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
@@ -1109,13 +962,10 @@
             </div>
         </div>
     </div>
-    
 </div>
-
 <!-- FINAL SECTION -->
 <div class="final-section">
     <h2>💬 Remember: Prompting is Like a Conversation</h2>
-    
     <div class="tip-box">
         <h4>You Don't Always Need All Four Elements in a Single Prompt!</h4>
         <p>Through your conversation with GenAI, you can use the four elements <strong>flexibly</strong>:</p>
@@ -1127,7 +977,6 @@
         </ul>
         <p>Think of these elements as <strong>tools for effective feedback</strong>—use them as needed throughout your conversation, not just at the start!</p>
     </div>
-    
     <div class="support-box">
         <h3>🎓 Need More Support?</h3>
         <p>Whether it's your search strategy or your assignment, we're here to help!</p>
@@ -1135,82 +984,66 @@
         <a href="https://library.aut.ac.nz/workshops/one-to-one-appointments" target="_blank" class="button">📅 Book a One-to-One Appointment</a>
     </div>
 </div>
-
 <script>
     // Google Apps Script URL
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZ76QHe2AN3H-Jp-C8m9P1N25QED-jbAiNNb3gsZwQn-Wm6CU7f3DJN6bg19peNxQpow/exec';
-    
     // Notice Accordion functionality
     function toggleNoticeAccordion() {
         const item = document.getElementById('noticeAccordion');
         item.classList.toggle('active');
     }
-    
     // Activity Accordion functionality
     function toggleAccordion(header) {
         const item = header.parentElement;
         const wasActive = item.classList.contains('active');
-        
         // Close all activity accordions
         document.querySelectorAll('.accordion-item').forEach(function(el) {
             el.classList.remove('active');
         });
-        
         // Open clicked one if it wasn't already open
         if (!wasActive) {
             item.classList.add('active');
         }
     }
-    
     // Update prompt for each activity
     function updatePrompt(outputId, goalId, contextId, expectationsId, limitsId) {
         const goal = document.getElementById(goalId).value.trim();
         const context = document.getElementById(contextId).value.trim();
         const expectations = document.getElementById(expectationsId).value.trim();
         const limits = document.getElementById(limitsId).value.trim();
-        
         const outputBox = document.getElementById(outputId);
         const outputText = document.getElementById('outputText' + outputId.slice(-1));
         const copyHint = document.getElementById('copyHint' + outputId.slice(-1));
-        
         if (!goal && !context && !expectations && !limits) {
             outputText.textContent = 'Start typing in the fields above to build your prompt...';
             outputBox.classList.add('empty');
             copyHint.style.display = 'none';
             return;
         }
-        
         outputBox.classList.remove('empty');
         copyHint.style.display = 'block';
-        
         let prompt = '';
-        
         if (goal) {
             prompt += goal;
             if (!/[.!?]$/.test(goal)) prompt += '.';
         }
-        
         if (context) {
             if (prompt) prompt += ' ';
             prompt += context;
             if (!/[.!?]$/.test(context)) prompt += '.';
         }
-        
         if (expectations) {
             if (prompt) prompt += ' ';
             prompt += expectations;
             if (!/[.!?]$/.test(expectations)) prompt += '.';
         }
-        
         if (limits) {
             if (prompt) prompt += ' ';
             prompt += limits;
             if (!/[.!?]$/.test(limits)) prompt += '.';
         }
-        
         outputText.textContent = prompt;
     }
-    
     // Send data to Google Sheets
     function sendToGoogleSheets(goal, context, expectations, limits, completePrompt, activity) {
         const data = {
@@ -1221,7 +1054,6 @@
             completePrompt: completePrompt,
             activity: activity
         };
-        
         fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -1237,22 +1069,18 @@
             console.log('Error sending data:', error);
         });
     }
-    
     // Copy prompt function
     function copyPrompt(outputId, goalId, contextId, expectationsId, limitsId) {
         const outputText = document.getElementById('outputText' + outputId.slice(-1));
         const text = outputText.textContent;
-        
         if (text === 'Start typing in the fields above to build your prompt...') {
             return;
         }
-        
         const goal = document.getElementById(goalId).value.trim();
         const context = document.getElementById(contextId).value.trim();
         const expectations = document.getElementById(expectationsId).value.trim();
         const limits = document.getElementById(limitsId).value.trim();
         const activity = 'Activity ' + outputId.slice(-1);
-        
         navigator.clipboard.writeText(text).then(function() {
             showCopiedMessage();
             sendToGoogleSheets(goal, context, expectations, limits, text, activity);
@@ -1269,7 +1097,6 @@
             sendToGoogleSheets(goal, context, expectations, limits, text, activity);
         });
     }
-    
     // Show copied message
     function showCopiedMessage() {
         const msg = document.getElementById('copiedMessage');
@@ -1280,7 +1107,6 @@
             msg.classList.remove('visible');
         }, 2500);
     }
-    
     // Add input listeners for all activities
     ['1', '2', '3'].forEach(function(num) {
         ['goal', 'context', 'expectations', 'limits'].forEach(function(field) {
@@ -1293,6 +1119,5 @@
         });
     });
 </script>
-
 </body>
 </html>
