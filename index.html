@@ -29,7 +29,7 @@
         
         h2 {
             color: #1976d2;
-            margin-top: 45px;
+            margin-top: 50px;
             margin-bottom: 15px;
             padding-bottom: 8px;
             border-bottom: 2px solid #e3f2fd;
@@ -81,44 +81,6 @@
             color: #0d47a1;
         }
         
-        .workflow-note {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 15px 20px;
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .workflow-note span {
-            font-weight: bold;
-            color: #1565c0;
-        }
-        
-        .workflow-icons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .workflow-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background-color: #e3f2fd;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-        
-        .workflow-arrow {
-            color: #1976d2;
-            font-weight: bold;
-        }
-        
         /* Chevron Icon Styles */
         .chevron-icon {
             width: 32px;
@@ -160,7 +122,7 @@
         
         /* Important Notice Accordion */
         .notice-accordion {
-            margin: 35px 0;
+            margin: 35px 0 50px 0;
         }
         
         .notice-accordion-item {
@@ -334,6 +296,11 @@
             font-size: 14px;
             margin-bottom: 15px;
             font-style: italic;
+        }
+        
+        /* Section transition text */
+        .section-transition {
+            margin-bottom: 50px;
         }
         
         /* Accordion Styles */
@@ -650,7 +617,7 @@
             background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             border-radius: 12px;
             padding: 30px 35px;
-            margin-top: 45px;
+            margin-top: 50px;
             border-left: 5px solid #2e7d32;
         }
         
@@ -719,19 +686,6 @@
             color: #333;
         }
         
-        /* Character Count */
-        .character-count {
-            font-size: 12px;
-            color: #999;
-            text-align: right;
-            margin-top: 5px;
-        }
-        
-        /* Section Spacing */
-        .section-spacer {
-            height: 20px;
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             body {
@@ -764,15 +718,6 @@
                 text-align: center;
                 margin-bottom: 10px;
             }
-            
-            .workflow-note {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .workflow-icons {
-                margin-top: 10px;
-            }
         }
         
         @media (max-width: 500px) {
@@ -793,17 +738,7 @@
     <h2>👋 Welcome to the Hands-On Workshop!</h2>
     <p>This is the practical part of our workshop where you'll learn to create effective prompts that help you search for academic information more efficiently.</p>
     <p>📑 <a href="[YOUR_SLIDES_LINK_HERE]" target="_blank">View the workshop slides</a> for more background on how GenAI works and its role in academic research.</p>
-    
-    <div class="workflow-note">
-        <span>During this workshop, you'll move between:</span>
-        <div class="workflow-icons">
-            <div class="workflow-item">📄 This page</div>
-            <span class="workflow-arrow">↔</span>
-            <div class="workflow-item">💬 <a href="https://copilot.microsoft.com" target="_blank">Copilot</a></div>
-            <span class="workflow-arrow">↔</span>
-            <div class="workflow-item">📚 <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a></div>
-        </div>
-    </div>
+    <p>During this workshop, you'll move between this page, <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>, and the <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>.</p>
 </div>
 
 <!-- IMPORTANT NOTICE ACCORDION -->
@@ -909,9 +844,7 @@
     </div>
 </div>
 
-<p>Now let's see how GenAI can <strong>support each of these steps</strong> by helping you create effective prompts!</p>
-
-<div class="section-spacer"></div>
+<p class="section-transition">Now let's see how GenAI can <strong>support each of these steps</strong> by helping you create effective prompts!</p>
 
 <!-- BUILD YOUR PROMPT SECTION -->
 <h2>🎯 Build Your Strong Search Prompt</h2>
