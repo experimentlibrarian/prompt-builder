@@ -505,18 +505,32 @@
         .library-intro-text p:last-child {
             margin-bottom: 0;
         }
+        .library-intro-text ol {
+            margin: 0 0 15px 0;
+            padding-left: 20px;
+        }
+        .library-intro-text li {
+            margin-bottom: 8px;
+        }
+        .library-buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
         .library-button {
             display: block;
             background-color: #8b7355;
             color: white;
             text-align: center;
-            padding: 20px 30px;
+            padding: 15px 25px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 20px;
-            margin: 20px 0;
+            font-size: 16px;
             transition: background-color 0.2s, transform 0.2s;
+            flex: 1;
+            min-width: 200px;
         }
         .library-button:hover {
             background-color: #6d5a45;
@@ -525,28 +539,10 @@
         }
         .library-button span {
             display: block;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: normal;
-            margin-top: 8px;
+            margin-top: 5px;
             opacity: 0.9;
-        }
-        .search-tips {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px 25px;
-            margin-top: 20px;
-        }
-        .search-tips h5 {
-            color: #5d4e37;
-            margin: 0 0 12px 0;
-        }
-        .search-tips ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        .search-tips li {
-            margin-bottom: 8px;
-            font-size: 14px;
         }
         /* Final Section */
         .final-section {
@@ -638,6 +634,12 @@
                 text-align: center;
                 margin-bottom: 10px;
             }
+            .library-buttons-container {
+                flex-direction: column;
+            }
+            .library-button {
+                min-width: 100%;
+            }
         }
         @media (max-width: 500px) {
             .flashcards-container {
@@ -671,22 +673,24 @@
             </div>
         </div>
         <div class="notice-accordion-content">
-            <p>GenAI tools like <a href="https://copilot.microsoft.com" target="_blank">Copilot</a> can be <strong>useful assistants</strong> for your learning, but only if <strong>you're in control</strong>. This means knowing:</p>
+            <p>GenAI tools like <a href="https://copilot.microsoft.com" target="_blank">Copilot</a> can be useful assistants, but only if <strong>you're in control</strong>:</p>
             <ul>
-                <li>✅ What tasks to delegate to AI</li>
-                <li>✅ How to communicate what you want clearly</li>
-                <li>✅ When AI is helpful vs. when it's not</li>
+                <li>✅ Know what tasks to delegate to AI</li>
+                <li>✅ Communicate what you want clearly</li>
+                <li>✅ Recognise when AI is helpful vs. when it's not</li>
             </ul>
-            <p class="warning-text"><strong>Why you shouldn't use GenAI to find your academic sources:</strong></p>
-            <ul>
-                <li><strong>🎭 It can hallucinate</strong> – GenAI sometimes invents citations that look real but don't exist!</li>
-                <li><strong>🔒 Limited access</strong> – It can't access library subscription databases where the best academic sources live.</li>
-                <li><strong>⚖️ Reinforces bias</strong> – AI learns from existing content, which often reflects dominant cultural perspectives.</li>
-            </ul>
+            <h4 class="warning-text">Why GenAI shouldn't find your sources</h4>
+            <p>GenAI sometimes invents citations that don't exist, can't access library databases where the best research lives, and often reflects dominant cultural perspectives, potentially overlooking Māori, Pacific, or other diverse viewpoints.</p>
+            <p>For credible, peer-reviewed sources, use the <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>, which you have full access to as an AUT student.</p>
             <div class="highlight-box">
-                <p><strong>💡 Think about it:</strong> Why use an unreliable tool to find something as important as your academic sources when you have access to <strong>real</strong>, <strong>peer-reviewed</strong>, <strong>credible</strong> sources through <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>, just by being an AUT student?</p>
+                <h4 style="margin-top: 0; color: #2e7d32;">Where GenAI can help</h4>
+                <p style="margin-bottom: 0;">While GenAI shouldn't find your sources, it <em>can</em> make your search process more efficient. In this workshop, you'll use it to:</p>
+                <ul style="margin-bottom: 0;">
+                    <li>Identify keywords and related terms</li>
+                    <li>Build effective search strings</li>
+                    <li>Get advice on refining your results</li>
+                </ul>
             </div>
-            <p><strong>However!</strong> GenAI <em>can</em> support you in making your search process more efficient. In this workshop, you'll learn how by creating <strong>strong search prompts</strong>.</p>
         </div>
     </div>
 </div>
@@ -755,7 +759,7 @@
 <p class="section-transition">Now let's see how GenAI can <strong>support each of these steps</strong> by helping you create effective prompts!</p>
 <!-- BUILD YOUR PROMPT SECTION -->
 <h2>🎯 Build your strong search prompt</h2>
-<p>A well-structured prompt <strong>may have four key elements</strong>. Use the activities below to build prompts for different search tasks.</p>
+<p>A well-structured prompt may have <strong>four key elements</strong>: <strong>Goal</strong>, <strong>Context</strong>, <strong>Expectations</strong>, and <strong>Limits</strong>. Use the activities below to build prompts for different search tasks.</p>
 <div class="how-it-works">
     <h3>📖 How these activities work</h3>
     <ol>
@@ -767,7 +771,7 @@
 </div>
 <!-- Privacy Disclaimer -->
 <div class="disclaimer-box">
-    <p>🔒 <strong>Privacy reminder:</strong> Do not include personal information such as your name, student ID, or course codes in your prompts when using GenAI tools.</p>
+    <p>🔒 <strong>Privacy reminder:</strong> Do not include personal information such as your name, student ID, or course codes in your prompts when using GenAI tools like Copilot. Keep your prompts focused on your research topic only.</p>
 </div>
 <div class="accordion">
     <!-- ACTIVITY 1: Identify Keywords -->
@@ -809,7 +813,7 @@
             <div class="input-section">
                 <label for="limits1">🚧 Part 4: Your limits</label>
                 <p class="description">What constraints or boundaries do you want to set?</p>
-                <textarea id="limits1" placeholder="Example: Before giving your response, ask me clarifying questions to make sure you understand my topic correctly."></textarea>
+                <textarea id="limits1" placeholder="Example: Do not provide definitions, just identify my keywords and alternative terms."></textarea>
                 <div class="example-box">
                     <strong>💡 Try:</strong> "Wait for my confirmation before proceeding" or "Ask me questions if anything is unclear"
                 </div>
@@ -895,25 +899,32 @@
             </div>
         </div>
         <div class="accordion-content">
-            <p>Now it's time to <strong>put your search string into action!</strong> Use the AUT Library to test your search and see what results you get.</p>
+            <p>Now it's time to <strong>put your search string into action!</strong></p>
             <div class="library-search-section">
-                <h4>🏛️ Search the AUT Library</h4>
+                <h4>🏛️ Test your search</h4>
                 <div class="library-intro-text">
-                    <p><strong>How it works:</strong> The button below takes you to the AUT Library homepage. Once there, you can choose to search using <strong>Library Search</strong>, <strong>Databases</strong>, or <strong>AUT Google Scholar</strong> from the left-side menu.</p>
-                    <p>Copy your search string from Activity 2 and paste it into the search box to test your results!</p>
+                    <p><strong>What to do:</strong></p>
+                    <ol>
+                        <li>Copy your search string from Activity 2</li>
+                        <li>Choose one of the search options below</li>
+                        <li>Paste your search string and run the search</li>
+                        <li>Review your results: How many? Are they relevant?</li>
+                    </ol>
+                    <p><strong>Too many, too few, or irrelevant results?</strong> Move to Activity 4 for help refining!</p>
                 </div>
-                <a href="https://library.aut.ac.nz/" target="_blank" class="library-button">
-                    📚 Go to AUT Library
-                    <span>Opens in a new tab, choose your search option from the left menu</span>
-                </a>
-                <div class="search-tips">
-                    <h5>💡 Tips for testing your search</h5>
-                    <ul>
-                        <li><strong>Copy your search string</strong> from Activity 2 (the one <a href="https://copilot.microsoft.com" target="_blank">Copilot</a> helped you create)</li>
-                        <li><strong>Paste it</strong> into the search box of your chosen option</li>
-                        <li><strong>Note your results:</strong> How many did you get? Are they relevant to your topic?</li>
-                        <li><strong>Too many, too few, or irrelevant results?</strong> Move to Activity 4 for help refining!</li>
-                    </ul>
+                <div class="library-buttons-container">
+                    <a href="https://library.aut.ac.nz" target="_blank" class="library-button">
+                        📚 Library Search
+                        <span>Search across all library resources</span>
+                    </a>
+                    <a href="https://library.aut.ac.nz/databases" target="_blank" class="library-button">
+                        🗄️ Databases
+                        <span>Search specific subject databases</span>
+                    </a>
+                    <a href="https://library.aut.ac.nz/google-scholar" target="_blank" class="library-button">
+                        🎓 AUT Google Scholar
+                        <span>Search with library access links</span>
+                    </a>
                 </div>
             </div>
             <div class="input-section">
@@ -965,9 +976,9 @@
             <div class="input-section">
                 <label for="limits4">🚧 Part 4: Your limits</label>
                 <p class="description">What constraints do you want to set?</p>
-                <textarea id="limits4" placeholder="Example: Suggest one change at a time and wait for me to test it before suggesting more."></textarea>
+                <textarea id="limits4" placeholder="Example: Let me try each suggestion before giving more."></textarea>
                 <div class="example-box">
-                    <strong>💡 Try:</strong> "Let me try each suggestion before giving more" or "Focus only on search string changes, not database filters"
+                    <strong>💡 Try:</strong> "Let me try each suggestion before giving more" or "Focus only on search string changes"
                 </div>
             </div>
             <div class="output-section">
@@ -986,17 +997,17 @@
 </div>
 <!-- FINAL SECTION -->
 <div class="final-section">
-    <h2>💬 Remember: Prompting is like a conversation</h2>
+    <h2>💬 Prompting is like a conversation</h2>
     <div class="tip-box">
         <h4>You don't always need all four elements in a single prompt!</h4>
-        <p>Through your conversation with GenAI, you can use the four elements <strong>flexibly</strong>:</p>
+        <p>Now that you've learnt to use the <strong>four key elements</strong> for prompting (Goal, Context, Expectations, Limits), remember that you don't have to use them all at once. Think of prompting like a conversation where you can use these elements <strong>flexibly</strong>:</p>
         <ul>
             <li>Start with just a <strong>goal</strong> and see what response you get</li>
             <li>Add <strong>context</strong> in a follow-up message if the AI needs more information</li>
             <li>Clarify your <strong>expectations</strong> if the format isn't quite right</li>
             <li>Set <strong>limits</strong> when you want to slow down or get more control</li>
         </ul>
-        <p>Think of these elements as <strong>tools for effective feedback</strong>, use them as needed throughout your conversation, not just at the start!</p>
+        <p>Use these elements as <strong>tools for effective feedback</strong> throughout your conversation, not just at the start!</p>
     </div>
     <div class="support-box">
         <h3>🎓 Need more support?</h3>
@@ -1007,7 +1018,7 @@
 </div>
 <script>
     // Google Apps Script URL - Replace with your actual deployed script URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxQ8gEYXDqirhL7NVbZTrkhDaa_wVCXrD3Oq78WV44XARvRdABaESZX6HC1U1isaT7z/exec';
+    const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
     
     // Notice Accordion functionality
     function toggleNoticeAccordion() {
