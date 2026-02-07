@@ -522,62 +522,42 @@
             85% { opacity: 1; transform: translateX(-50%) translateY(0); }
             100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
         }
-        /* Library Search Section - Updated to match blue theme */
-        .library-search-section {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        /* Library Instructions Box - matches support-box style */
+        .library-instructions-box {
+            background-color: #fff;
             border: 2px solid #1976d2;
             border-radius: 12px;
-            padding: 30px;
-            margin: 25px 0;
+            padding: 25px 30px;
+            margin: 20px 0;
         }
-        .library-search-section h4 {
+        .library-instructions-box h4 {
             color: #1565c0;
             margin-top: 0;
+            margin-bottom: 15px;
         }
-        .library-intro-text {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px 25px;
-            margin-bottom: 20px;
-            border-left: 4px solid #1976d2;
-        }
-        .library-intro-text p {
-            margin: 0 0 10px 0;
-        }
-        .library-intro-text p:last-child {
-            margin-bottom: 0;
-        }
-        .library-intro-text ol {
-            margin: 0 0 15px 0;
+        .library-instructions-box ol {
+            margin: 0;
             padding-left: 20px;
         }
-        .library-intro-text li {
-            margin-bottom: 8px;
+        .library-instructions-box li {
+            margin-bottom: 10px;
         }
-        .library-button {
-            display: block;
-            background-color: #1976d2;
-            color: white;
-            text-align: center;
-            padding: 18px 30px;
-            border-radius: 8px;
-            text-decoration: none;
+        .library-instructions-box ul {
+            margin: 8px 0 0 0;
+            padding-left: 20px;
+        }
+        .library-instructions-box ul li {
+            margin-bottom: 5px;
+        }
+        .library-instructions-box a {
+            color: #1565c0;
             font-weight: bold;
-            font-size: 18px;
-            margin: 20px 0;
-            transition: background-color 0.2s, transform 0.2s;
         }
-        .library-button:hover {
-            background-color: #1565c0;
-            color: white;
-            transform: translateY(-2px);
+        .library-instructions-box a:hover {
+            color: #0d47a1;
         }
-        .library-button span {
-            display: block;
-            font-size: 13px;
-            font-weight: normal;
-            margin-top: 6px;
-            opacity: 0.9;
+        .library-instructions-box p {
+            margin: 15px 0 0 0;
         }
         /* Final Section */
         .final-section {
@@ -713,7 +693,7 @@
                 <ul>
                     <li>It can <strong>invent citations</strong> that don't exist</li>
                     <li>It <strong>can't access library databases</strong> where the best research lives</li>
-                    <li>It often <strong>reflects dominant perspectives</strong>, potentially overlooking diverse viewpoints</li>
+                    <li>It often <strong>reflects dominant perspectives</strong>, potentially overlooking Māori, Pacific, or other diverse viewpoints</li>
                 </ul>
             </div>
             <div class="highlight-box">
@@ -726,7 +706,7 @@
             </div>
             <div class="tip-text">
                 <span class="tip-icon">💡</span>
-                <p> For credible, peer-reviewed sources, use the <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>, which you have full access to as an AUT student.</p>
+                <p><strong>Good to know:</strong> For credible, peer-reviewed sources, use the <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a>, which you have full access to as an AUT student.</p>
             </div>
         </div>
     </div>
@@ -808,7 +788,7 @@
 </div>
 <!-- Privacy Disclaimer -->
 <div class="disclaimer-box">
-    <p>🔒 <strong>Privacy reminder:</strong> Do not include personal information such as your name, student ID, or course codes in your prompts when using GenAI tools.</p>
+    <p>🔒 <strong>Privacy reminder:</strong> Do not include personal information such as your name, student ID, or course codes in your prompts when using GenAI tools like Copilot. Keep your prompts focused on your research topic only.</p>
 </div>
 <div class="accordion">
     <!-- ACTIVITY 1: Identify Keywords -->
@@ -937,27 +917,21 @@
         </div>
         <div class="accordion-content">
             <p>Now it's time to <strong>test your search string</strong> in the AUT Library!</p>
-            <div class="library-search-section">
+            <div class="library-instructions-box">
                 <h4>🏛️ What to do</h4>
-                <div class="library-intro-text">
-                    <ol>
-                        <li><strong>Copy your search string</strong> from Activity 2</li>
-                        <li><strong>Go to the AUT Library</strong> using the button below</li>
-                        <li><strong>Choose a search option</strong> from the left side of the library homepage, under the heading <strong>"Search our:"</strong>
-                            <ul style="margin-top: 8px;">
-                                <li><strong>Library Search</strong></li>
-                                <li><strong>AUT Google Scholar</strong></li>
-                                <li><strong>Databases</strong> Find a specific databases by subject or title</li>
-                            </ul>
-                        </li>
-                        <li><strong>Paste your search string</strong> and review your results</li>
-                    </ol>
-                    <p><strong>Too many, too few, or irrelevant results?</strong> Move to Activity 4 for help refining!</p>
-                </div>
-                <a href="https://library.aut.ac.nz" target="_blank" class="library-button">
-                    📚 Go to AUT Library
-                    <span>Opens in a new tab</span>
-                </a>
+                <ol>
+                    <li><strong>Copy your search string</strong> from Activity 2</li>
+                    <li><strong>Go to the <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a></strong></li>
+                    <li><strong>Choose a search option</strong> from the left side of the homepage, under <strong>"Search our:"</strong>
+                        <ul>
+                            <li>Library Search</li>
+                            <li>AUT Google Scholar</li>
+                            <li>Databases (find by subject or title)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Paste your search string</strong> and review your results</li>
+                </ol>
+                <p><strong>Too many, too few, or irrelevant results?</strong> Move to Activity 4 for help refining!</p>
             </div>
             <div class="input-section">
                 <label for="searchNotes">📝 Record your search results</label>
@@ -1030,12 +1004,12 @@
 <!-- FINAL SECTION -->
 <div class="final-section">
     <h2>💬 Prompting is like a conversation</h2>
-    <p>The <strong>four key elements</strong> (Goal, Context, Expectations, Limits) are helpful ways to give clearer instructions to GenAI. tools for giving effective feedback to GenAI. You may not need to use all of them in every prompt. Instead, bring them in when they make sense during your conversation.
+    <p>The <strong>four key elements</strong> (Goal, Context, Expectations, Limits) are tools for giving effective feedback to GenAI. You don't need to use all of them in every prompt. Instead, use them <strong>flexibly throughout your conversation</strong>:</p>
     <ul>
-        <li><strong>Goal</strong> - Start with what you want to achieve</li>
-        <li><strong>Context</strong> - Add background when the AI needs more information</li>
-        <li><strong>Expectations</strong> - Clarify if the response format isn't right or provide examples</li>
-        <li><strong>Limits</strong> - Set when you need more control or need the AI to stay within certain boundaries</li>
+        <li><strong>Goal</strong> – Start here, then add more if needed</li>
+        <li><strong>Context</strong> – Provide when the AI needs background</li>
+        <li><strong>Expectations</strong> – Clarify if the response format isn't right</li>
+        <li><strong>Limits</strong> – Set when you need more control</li>
     </ul>
     <p>Think of these elements as ways to <strong>guide and refine</strong> the AI's responses as you go, not a checklist to complete upfront.</p>
     <div class="support-box">
@@ -1048,13 +1022,11 @@
 <script>
     // Google Apps Script URL - Replace with your actual deployed script URL
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxQ8gEYXDqirhL7NVbZTrkhDaa_wVCXrD3Oq78WV44XARvRdABaESZX6HC1U1isaT7z/exec';
-    
     // Notice Accordion functionality
     function toggleNoticeAccordion() {
         const item = document.getElementById('noticeAccordion');
         item.classList.toggle('active');
     }
-    
     // Activity Accordion functionality
     function toggleAccordion(header) {
         const item = header.parentElement;
@@ -1068,7 +1040,6 @@
             item.classList.add('active');
         }
     }
-    
     // Update prompt for each activity
     function updatePrompt(outputId, goalId, contextId, expectationsId, limitsId) {
         const goal = document.getElementById(goalId).value.trim();
@@ -1079,7 +1050,6 @@
         const outputNum = outputId.replace('output', '');
         const outputText = document.getElementById('outputText' + outputNum);
         const copyHint = document.getElementById('copyHint' + outputNum);
-        
         if (!goal && !context && !expectations && !limits) {
             outputText.textContent = 'Start typing in the fields above to build your prompt...';
             outputBox.classList.add('empty');
@@ -1110,7 +1080,6 @@
         }
         outputText.textContent = prompt;
     }
-    
     // Send data to Google Sheets
     function sendToGoogleSheets(goal, context, expectations, limits, completePrompt, activity) {
         const data = {
@@ -1137,22 +1106,18 @@
             console.log('Error sending data:', error);
         });
     }
-    
     // Copy prompt function
     function copyPrompt(outputId, goalId, contextId, expectationsId, limitsId, activityName) {
         const outputNum = outputId.replace('output', '');
         const outputText = document.getElementById('outputText' + outputNum);
         const text = outputText.textContent;
-        
         if (text === 'Start typing in the fields above to build your prompt...') {
             return;
         }
-        
         const goal = document.getElementById(goalId).value.trim();
         const context = document.getElementById(contextId).value.trim();
         const expectations = document.getElementById(expectationsId).value.trim();
         const limits = document.getElementById(limitsId).value.trim();
-        
         navigator.clipboard.writeText(text).then(function() {
             showCopiedMessage();
             sendToGoogleSheets(goal, context, expectations, limits, text, activityName);
@@ -1169,7 +1134,6 @@
             sendToGoogleSheets(goal, context, expectations, limits, text, activityName);
         });
     }
-    
     // Show copied message
     function showCopiedMessage() {
         const msg = document.getElementById('copiedMessage');
@@ -1180,7 +1144,6 @@
             msg.classList.remove('visible');
         }, 2500);
     }
-    
     // Add input listeners for Activities 1, 2, and 4 only (Activity 3 has no prompt builder)
     ['1', '2', '4'].forEach(function(num) {
         ['goal', 'context', 'expectations', 'limits'].forEach(function(field) {
