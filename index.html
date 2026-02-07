@@ -386,6 +386,32 @@
         .how-it-works li {
             margin-bottom: 8px;
         }
+        /* Prompting Tips Box - matches how-it-works style */
+        .prompting-tips {
+            background-color: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-top: 60px;
+        }
+        .prompting-tips h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .prompting-tips p {
+            margin: 0 0 15px 0;
+        }
+        .prompting-tips p:last-of-type {
+            margin-bottom: 0;
+        }
+        .prompting-tips ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .prompting-tips li {
+            margin-bottom: 8px;
+        }
         /* Input Sections */
         .input-section {
             background-color: #f5f5f5;
@@ -559,41 +585,26 @@
         .library-instructions-box p {
             margin: 15px 0 0 0;
         }
-        /* Final Section */
-        .final-section {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            border-radius: 12px;
-            padding: 30px 35px;
-            margin-top: 60px;
-            border: 2px solid #4caf50;
-        }
-        .final-section h2 {
-            color: #1b5e20;
-            margin-top: 0;
-            border-bottom: none;
-        }
-        .final-section p {
-            margin-bottom: 15px;
-        }
-        .final-section ul {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
-        .final-section li {
-            margin-bottom: 8px;
-        }
         /* Support Box */
         .support-box {
             background-color: #fff;
             border: 2px solid #1976d2;
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px 30px;
             margin-top: 25px;
-            text-align: center;
         }
         .support-box h3 {
             color: #1565c0;
             margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .support-box p {
+            margin: 0 0 15px 0;
+        }
+        .support-box .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .support-box a.button {
             display: inline-block;
@@ -603,7 +614,6 @@
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            margin: 10px 5px;
             transition: background-color 0.2s;
         }
         .support-box a.button:hover {
@@ -649,6 +659,12 @@
                 text-align: center;
                 margin-bottom: 10px;
             }
+            .support-box .button-container {
+                flex-direction: column;
+            }
+            .support-box a.button {
+                text-align: center;
+            }
         }
         @media (max-width: 500px) {
             .flashcards-container {
@@ -692,8 +708,8 @@
                 <h4>🚫 Why GenAI shouldn't find your sources</h4>
                 <ul>
                     <li>It can <strong>invent citations</strong> that don't exist</li>
-                    <li>It <strong>can't access library databases</strong> where the best academic sources live</li>
-                    <li>It often <strong>reflects dominant perspectives</strong>, potentially overlooking other diverse viewpoints</li>
+                    <li>It <strong>can't access library databases</strong> where the best research lives</li>
+                    <li>It often <strong>reflects dominant perspectives</strong>, potentially overlooking diverse viewpoints</li>
                 </ul>
             </div>
             <div class="highlight-box">
@@ -783,7 +799,7 @@
         <li><strong>Type your information</strong> in each of the four boxes (Goal, Context, Expectations, Limits)</li>
         <li><strong>Watch your prompt build</strong> automatically in the green "Complete prompt" box</li>
         <li><strong>Click the green box</strong> to copy your complete prompt</li>
-        <li><strong>Paste into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a></strong> and check the response before moving to the next activity.</li>
+        <li><strong>Paste into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a></strong> and see the response!</li>
     </ol>
 </div>
 <!-- Privacy Disclaimer -->
@@ -1001,9 +1017,9 @@
         </div>
     </div>
 </div>
-<!-- FINAL SECTION -->
-<div class="final-section">
-    <h2>💬 Prompting is like a conversation</h2>
+<!-- PROMPTING TIPS SECTION - Separate box matching how-it-works style -->
+<div class="prompting-tips">
+    <h3>💬 Prompting is like a conversation</h3>
     <p>The <strong>four key elements</strong> (Goal, Context, Expectations, Limits) are tools for giving effective feedback to GenAI. You don't need to use all of them in every prompt. Instead, use them <strong>flexibly throughout your conversation</strong>:</p>
     <ul>
         <li><strong>Goal</strong> – Start here, then add more if needed</li>
@@ -1012,9 +1028,12 @@
         <li><strong>Limits</strong> – Set when you need more control</li>
     </ul>
     <p>Think of these elements as ways to <strong>guide and refine</strong> the AI's responses as you go, not a checklist to complete upfront.</p>
-    <div class="support-box">
-        <h3>🎓 Need more support?</h3>
-        <p>Whether it's your search strategy or your assignment, we're here to help!</p>
+</div>
+<!-- SUPPORT SECTION - Separate box -->
+<div class="support-box">
+    <h3>🎓 Need more support?</h3>
+    <p>Whether it's your search strategy or your assignment, we're here to help!</p>
+    <div class="button-container">
         <a href="https://canvas.aut.ac.nz/courses/7624" target="_blank" class="button">📚 Visit YLOC learning resources</a>
         <a href="https://library.aut.ac.nz/about/book-an-appointment" target="_blank" class="button">📅 Book a one-to-one appointment</a>
     </div>
