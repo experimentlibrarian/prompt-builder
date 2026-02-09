@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI toolkit: Designing strong search prompts - Activities</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 10px;
+            color: #333;
+            background-color: #fafafa;
+        }
+        h1 {
+            color: #1565c0;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1565c0;
+            font-size: 28px;
+            margin-bottom: 60px;
+        }
+        h2 {
+            color: #1976d2;
+            margin-top: 60px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e3f2fd;
+        }
+        h3 {
+            color: #1976d2;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #1565c0;
+        }
+        a:hover {
+            color: #0d47a1;
+        }
+        /* Intro Section */
+        .intro-box {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 25px 35px;
+            margin-bottom: 35px;
+            border: 2px solid #1976d2;
+        }
+        .intro-box h2 {
+            margin-top: 0;
+            border-bottom: none;
+            color: #0d47a1;
+        }
+        .intro-box p {
+            margin-bottom: 15px;
+        }
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+        .intro-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .intro-box li {
+            margin-bottom: 0;
+        }
+        .intro-box a {
+            color: #1565c0;
+            font-weight: bold;
+        }
+        .intro-box a:hover {
+            color: #0d47a1;
+        }
+        /* Chevron Icon Styles */
+        .chevron-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #1976d2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .chevron-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+            transition: transform 0.3s ease;
+        }
+        /* Disclaimer Box */
+        .disclaimer-box {
+            background-color: #ffebee;
+            border: 2px solid #ef5350;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        .disclaimer-box p {
+            margin: 0;
+            color: #c62828;
+            font-size: 14px;
+        }
+        .disclaimer-box strong {
+            color: #b71c1c;
+        }
+        /* Accordion Styles */
+        .accordion {
+            margin: 25px 0;
+        }
+        .accordion-item {
+            border: 2px solid #1976d2;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        .accordion-item:last-child {
+            margin-bottom: 0;
+        }
+        .accordion-header {
+            background-color: #e3f2fd;
+            padding: 18px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        .accordion-header:hover {
+            background-color: #bbdefb;
+        }
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #1565c0;
+        }
+        .accordion-item.active .chevron-icon svg {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .accordion-item.active .accordion-content {
+            padding: 30px;
+            max-height: 3000px;
+        }
+        /* How It Works Box */
+        .how-it-works {
+            background-color: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+        }
+        .how-it-works h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .how-it-works ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .how-it-works li {
+            margin-bottom: 8px;
+        }
+        .how-it-works p {
+            margin: 15px 0 0 0;
+            font-style: italic;
+        }
+        /* What's Next Box */
+        .whats-next {
+            background-color: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-top: 20px;
+            margin-bottom: 60px;
+        }
+        .whats-next h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .whats-next p {
+            margin: 0 0 15px 0;
+        }
+        .whats-next p:last-of-type {
+            margin-bottom: 0;
+        }
+        /* Input Sections */
+        .input-section {
+            background-color: #fff;
+            border: 2px solid #1976d2;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 18px 0;
+        }
+        .input-section label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #1565c0;
+            font-size: 16px;
+        }
+        .input-section .description {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .input-section textarea {
+            width: 100%;
+            padding: 14px;
+            font-size: 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            resize: vertical;
+            min-height: 90px;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .input-section textarea:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+        }
+        .input-section textarea::placeholder {
+            color: #999;
+        }
+        /* Example Box Container */
+        .example-box {
+            margin-top: 15px;
+        }
+        /* Tip Row - Orange */
+        .tip-row {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 12px 18px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 10px;
+        }
+        .tip-row .tip-text {
+            font-size: 14px;
+            color: #e65100;
+        }
+        .tip-row .tip-text strong {
+            color: #e65100;
+        }
+        /* Example Row - Green */
+        .example-row {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .example-row .example-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .example-row .example-text {
+            font-size: 14px;
+            color: #2e7d32;
+        }
+        .example-row .example-text strong {
+            color: #2e7d32;
+        }
+        /* Output Section */
+        .output-section {
+            background-color: #e8f5e9;
+            border: 2px solid #2e7d32;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 25px 0;
+        }
+        .output-section h4 {
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .output-box {
+            background-color: #fff;
+            border: 2px dashed #2e7d32;
+            border-radius: 6px;
+            padding: 25px;
+            min-height: 100px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.7;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .output-box:hover {
+            background-color: #f1f8e9;
+            border-color: #1b5e20;
+        }
+        .output-box.empty {
+            color: #999;
+            font-family: inherit;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .copy-hint {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 12px;
+            color: #2e7d32;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #c8e6c9;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .output-box:hover .copy-hint {
+            background-color: #a5d6a7;
+        }
+        /* Copied Message */
+        .copied-message {
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            z-index: 1000;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .copied-message.visible {
+            display: block;
+            animation: fadeInOut 2.5s ease-in-out;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+        }
+        /* Library Instructions Box */
+        .library-instructions-box {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin: 20px 0;
+        }
+        .library-instructions-box h4 {
+            color: #1565c0;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .library-instructions-box ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .library-instructions-box li {
+            margin-bottom: 10px;
+        }
+        .library-instructions-box ul {
+            margin: 8px 0 0 0;
+            padding-left: 20px;
+        }
+        .library-instructions-box ul li {
+            margin-bottom: 5px;
+        }
+        .library-instructions-box a {
+            color: #1565c0;
+            font-weight: bold;
+        }
+        .library-instructions-box a:hover {
+            color: #0d47a1;
+        }
+        .library-instructions-box p {
+            margin: 15px 0 0 0;
+        }
+        /* Support Box */
+        .support-box {
+            background-color: #fff;
+            border: 2px solid #1976d2;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-top: 0;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .support-box h3 {
+            color: #1565c0;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .support-box p {
+            margin: 0 0 15px 0;
+        }
+        .support-box .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .support-box a.button {
+            display: inline-block;
+            background-color: #1976d2;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .support-box a.button:hover {
+            background-color: #1565c0;
+            color: white;
+        }
+        /* Privacy Notice */
+        .privacy-notice {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 12px 18px;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+        .privacy-notice strong {
+            color: #333;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 8px;
+            }
+            .accordion-header h3 {
+                font-size: 16px;
+            }
+            .output-box {
+                padding: 15px;
+            }
+            .copy-hint {
+                position: static;
+                display: block;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .support-box .button-container {
+                flex-direction: column;
+            }
+            .support-box a.button {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="copied-message" id="copiedMessage">✓ Copied to clipboard!</div>
+<h1>🛠️ AI toolkit: Designing strong search prompts</h1>
+<!-- INTRO SECTION -->
+<div class="intro-box">
+    <h2>👋 Welcome!</h2>
+    <p>In this page, you'll build prompts to help you search for academic information more efficiently using <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>.</p>
+    <p>A well-structured prompt has <strong>four key elements</strong>: <strong>Goal</strong>, <strong>Context</strong>, <strong>Expectations</strong>, and <strong>Limits</strong>. Use the activities below to practise building prompts for different search tasks.</p>
+</div>
+<!-- HOW IT WORKS -->
+<div class="how-it-works">
+    <h3>📖 How these activities work</h3>
+    <ol>
+        <li><strong>Build your prompt</strong> using the four boxes (Goal, Context, Expectations, Limits)</li>
+        <li><strong>Copy your prompt</strong> by clicking <img src="images/click-to-copy.png" alt="Click to copy button" style="vertical-align: middle; height: 24px;"> in the prompt box</li>
+        <li><strong>Paste into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a></strong> and review the response</li>
+        <li><strong>Move to the next activity</strong> when ready</li>
+    </ol>
+    <p>Activity 3 is different: you'll test your search in the library instead of using Copilot.</p>
+</div>
+<!-- Privacy Disclaimer -->
+<div class="disclaimer-box">
+    <p>🔒 <strong>Privacy reminder:</strong> Do not include personal information such as your name, student ID, or course codes in your prompts when using GenAI tools.</p>
+</div>
+<div class="accordion">
+    <!-- ACTIVITY 1: Identify Keywords -->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>📝 Activity 1: Identify keywords and related terms</h3>
+            <div class="chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
+        </div>
+        <div class="accordion-content">
+            <p>Use this prompt to help you identify the main concepts in your research topic and discover alternative keywords.</p>
+            <div class="input-section">
+                <label for="goal1">🎯 Part 1: Your goal</label>
+                <p class="description">What do you want the AI to help you with?</p>
+                <textarea id="goal1" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> State clearly what you want the AI to do for you</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Identify the key concepts and suggest synonyms or related terms I can use to search academic databases</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="context1">📚 Part 2: Your context</label>
+                <p class="description">What's your topic and background?</p>
+                <textarea id="context1" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Include your topic, your course/level, any specific focus areas</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> My research topic is the impact of social media on teenage mental health. This is for a second-year Psychology assignment.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="expectations1">📋 Part 3: Your expectations</label>
+                <p class="description">How do you want the response formatted?</p>
+                <textarea id="expectations1" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Specify format (list, table), number of items, level of detail</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Present the concepts as a list with 3-4 alternative terms for each. Keep explanations brief.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="limits1">🚧 Part 4: Your limits</label>
+                <p class="description">What constraints or boundaries do you want to set?</p>
+                <textarea id="limits1" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Set boundaries like "Wait for my confirmation" or "Ask me questions if unclear"</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Do not provide definitions, just identify my keywords and alternative terms.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="output-section">
+                <h4>✨ Your complete prompt</h4>
+                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
+                <div class="output-box empty" id="output1" onclick="copyPrompt('output1', 'goal1', 'context1', 'expectations1', 'limits1', 'Activity 1')">
+                    <span class="copy-hint" id="copyHint1" style="display:none;">📋 Click to copy</span>
+                    <span id="outputText1">Start typing in the fields above to build your prompt...</span>
+                </div>
+                <div class="privacy-notice">
+                    <strong>📊 Note:</strong> When you copy, your prompt is anonymously logged to help improve this workshop.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ACTIVITY 2: Build Search String -->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>🔗 Activity 2: Build a search string</h3>
+            <div class="chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
+        </div>
+        <div class="accordion-content">
+            <p>Use this prompt to combine your concepts and keywords into a search string using Boolean operators (AND, OR, NOT), phrase searching (""), and truncation (*).</p>
+            <div class="input-section">
+                <label for="goal2">🎯 Part 1: Your goal</label>
+                <p class="description">What do you want the AI to help you with?</p>
+                <textarea id="goal2" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Ask for a search string that uses Boolean operators</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Create a search string that combines my concepts using AND, OR, phrase searching, and truncation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="context2">📚 Part 2: Your context</label>
+                <p class="description">List your main concepts and the alternative terms you've identified</p>
+                <textarea id="context2" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Include your main concepts from Activity 1 and their synonyms/alternatives</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> My main concepts are: 1) Social media (alternatives: Instagram, TikTok, social networking), 2) Teenagers (alternatives: adolescents, youth, young people), 3) Mental health (alternatives: wellbeing, anxiety, depression)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="expectations2">📋 Part 3: Your expectations</label>
+                <p class="description">How do you want the search string formatted?</p>
+                <textarea id="expectations2" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Specify ready-to-use format, with or without explanation, variations for different databases</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Provide the search string in a format I can copy directly into a library database. Explain briefly why you structured it that way.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="limits2">🚧 Part 4: Your limits</label>
+                <p class="description">What constraints do you want to set?</p>
+                <textarea id="limits2" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Try "Don't add terms I haven't mentioned" or "Check with me before finalising"</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Only use the terms I've provided. Ask me if you need more information about my topic focus.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="output-section">
+                <h4>✨ Your complete prompt</h4>
+                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
+                <div class="output-box empty" id="output2" onclick="copyPrompt('output2', 'goal2', 'context2', 'expectations2', 'limits2', 'Activity 2')">
+                    <span class="copy-hint" id="copyHint2" style="display:none;">📋 Click to copy</span>
+                    <span id="outputText2">Start typing in the fields above to build your prompt...</span>
+                </div>
+                <div class="privacy-notice">
+                    <strong>📊 Note:</strong> When you copy, your prompt is anonymously logged to help improve this workshop.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ACTIVITY 3: Try Your Search -->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>🔍 Activity 3: Try your search in the library</h3>
+            <div class="chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
+        </div>
+        <div class="accordion-content">
+            <p>Now it's time to <strong>test your search string</strong> in the AUT Library!</p>
+            <div class="library-instructions-box">
+                <h4>🏛️ What to do</h4>
+                <ol>
+                    <li><strong>Copy your search string</strong> from Activity 2</li>
+                    <li><strong>Go to the <a href="https://library.aut.ac.nz" target="_blank">AUT Library</a></strong></li>
+                    <li><strong>Choose a search option</strong> from the left side of the homepage, under <strong>"Search our:"</strong>
+                        <ul>
+                            <li>Library Search</li>
+                            <li>AUT Google Scholar</li>
+                            <li>Databases (find by subject or title)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Paste your search string</strong> and review your results</li>
+                </ol>
+                <p><strong>Too many, too few, or irrelevant results?</strong> Move to Activity 4 for help refining!</p>
+            </div>
+            <div class="input-section">
+                <label for="searchNotes">📝 Record your search results</label>
+                <p class="description">Take notes on what happened when you tried your search (for your own reference):</p>
+                <textarea id="searchNotes" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Note which search option you used, how many results, are they relevant, what's working, what needs improvement</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> I searched in Library Search and got 2,847 results. Many seem relevant but there are too many to look through. Some results are about adults, not teenagers specifically.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ACTIVITY 4: Refine Your Search -->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>🔧 Activity 4: Get advice to refine your search</h3>
+            <div class="chevron-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </div>
+        </div>
+        <div class="accordion-content">
+            <p>Getting too many, too few, or irrelevant results? Use this prompt to get advice on refining your search strategy.</p>
+            <div class="input-section">
+                <label for="goal4">🎯 Part 1: Your goal</label>
+                <p class="description">What problem are you trying to solve?</p>
+                <textarea id="goal4" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Describe the problem with your current results (too many, too few, irrelevant)</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> I'm getting too many irrelevant results. Suggest how to improve my search.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="context4">📚 Part 2: Your context</label>
+                <p class="description">Describe your current search and what's happening</p>
+                <textarea id="context4" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Include your topic, current search string, what results you're getting, what's wrong with them</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> I'm researching the impact of social media on teenage mental health. My current search string is: (social media OR Instagram) AND (teenager OR adolescent) AND (mental health OR anxiety). I'm getting over 5,000 results and many are about adults, not teenagers.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="expectations4">📋 Part 3: Your expectations</label>
+                <p class="description">What kind of advice do you want?</p>
+                <textarea id="expectations4" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Specify number of suggestions, level of explanation, focus on narrowing or broadening</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Give me 3 specific suggestions to narrow my results. For each suggestion, explain why it might help.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                <label for="limits4">🚧 Part 4: Your limits</label>
+                <p class="description">What constraints do you want to set?</p>
+                <textarea id="limits4" placeholder="Type here..."></textarea>
+                <div class="example-box">
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Try "Let me try each suggestion before giving more" or "Focus only on search string changes"</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Let me try each suggestion before giving more.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="output-section">
+                <h4>✨ Your complete prompt</h4>
+                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
+                <div class="output-box empty" id="output4" onclick="copyPrompt('output4', 'goal4', 'context4', 'expectations4', 'limits4', 'Activity 4')">
+                    <span class="copy-hint" id="copyHint4" style="display:none;">📋 Click to copy</span>
+                    <span id="outputText4">Start typing in the fields above to build your prompt...</span>
+                </div>
+                <div class="privacy-notice">
+                    <strong>📊 Note:</strong> When you copy, your prompt is anonymously logged to help improve this workshop.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- WHAT'S NEXT - Closing section -->
+<div class="whats-next">
+    <h3>➡️ What's next</h3>
+    <p>Now that you understand the four elements, use them flexibly. You might include all four in one prompt, or use them separately at different moments in your conversation.</p>
+    <p>Remember, GenAI can be a useful assistant, but you're in control. You lead the conversation, judge what's useful, and make the final decisions.</p>
+</div>
+<!-- SUPPORT SECTION -->
+<div class="support-box">
+    <h3>🎓 Need more support?</h3>
+    <p>Whether it's your search strategy or your assignment, we're here to help!</p>
+    <div class="button-container">
+        <a href="https://canvas.aut.ac.nz/courses/7624" target="_blank" class="button">📚 Visit YLOC learning resources</a>
+        <a href="https://library.aut.ac.nz/about/book-an-appointment" target="_blank" class="button">📅 Book a one-to-one appointment</a>
+    </div>
+</div>
+<script>
+    // Google Apps Script URL - Replace with your actual deployed script URL
+    const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+    // Activity Accordion functionality
+    function toggleAccordion(header) {
+        const item = header.parentElement;
+        const wasActive = item.classList.contains('active');
+        // Close all activity accordions
+        document.querySelectorAll('.accordion-item').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        // Open clicked one if it wasn't already open
+        if (!wasActive) {
+            item.classList.add('active');
+        }
+    }
+    // Update prompt for each activity
+    function updatePrompt(outputId, goalId, contextId, expectationsId, limitsId) {
+        const goal = document.getElementById(goalId).value.trim();
+        const context = document.getElementById(contextId).value.trim();
+        const expectations = document.getElementById(expectationsId).value.trim();
+        const limits = document.getElementById(limitsId).value.trim();
+        const outputBox = document.getElementById(outputId);
+        const outputNum = outputId.replace('output', '');
+        const outputText = document.getElementById('outputText' + outputNum);
+        const copyHint = document.getElementById('copyHint' + outputNum);
+        if (!goal && !context && !expectations && !limits) {
+            outputText.textContent = 'Start typing in the fields above to build your prompt...';
+            outputBox.classList.add('empty');
+            copyHint.style.display = 'none';
+            return;
+        }
+        outputBox.classList.remove('empty');
+        copyHint.style.display = 'block';
+        let prompt = '';
+        if (goal) {
+            prompt += goal;
+            if (!/[.!?]$/.test(goal)) prompt += '.';
+        }
+        if (context) {
+            if (prompt) prompt += ' ';
+            prompt += context;
+            if (!/[.!?]$/.test(context)) prompt += '.';
+        }
+        if (expectations) {
+            if (prompt) prompt += ' ';
+            prompt += expectations;
+            if (!/[.!?]$/.test(expectations)) prompt += '.';
+        }
+        if (limits) {
+            if (prompt) prompt += ' ';
+            prompt += limits;
+            if (!/[.!?]$/.test(limits)) prompt += '.';
+        }
+        outputText.textContent = prompt;
+    }
+    // Send data to Google Sheets
+    function sendToGoogleSheets(goal, context, expectations, limits, completePrompt, activity) {
+        const data = {
+            goal: goal,
+            context: context,
+            expectations: expectations,
+            limits: limits,
+            completePrompt: completePrompt,
+            activity: activity,
+            timestamp: new Date().toISOString()
+        };
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(function() {
+            console.log('Data sent to Google Sheets');
+        })
+        .catch(function(error) {
+            console.log('Error sending data:', error);
+        });
+    }
+    // Copy prompt function
+    function copyPrompt(outputId, goalId, contextId, expectationsId, limitsId, activityName) {
+        const outputNum = outputId.replace('output', '');
+        const outputText = document.getElementById('outputText' + outputNum);
+        const text = outputText.textContent;
+        if (text === 'Start typing in the fields above to build your prompt...') {
+            return;
+        }
+        const goal = document.getElementById(goalId).value.trim();
+        const context = document.getElementById(contextId).value.trim();
+        const expectations = document.getElementById(expectationsId).value.trim();
+        const limits = document.getElementById(limitsId).value.trim();
+        navigator.clipboard.writeText(text).then(function() {
+            showCopiedMessage();
+            sendToGoogleSheets(goal, context, expectations, limits, text, activityName);
+        }).catch(function() {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showCopiedMessage();
+            sendToGoogleSheets(goal, context, expectations, limits, text, activityName);
+        });
+    }
+    // Show copied message
+    function showCopiedMessage() {
+        const msg = document.getElementById('copiedMessage');
+        msg.classList.remove('visible');
+        void msg.offsetWidth;
+        msg.classList.add('visible');
+        setTimeout(function() {
+            msg.classList.remove('visible');
+        }, 2500);
+    }
+    // Add input listeners for Activities 1, 2, and 4 only (Activity 3 has no prompt builder)
+    ['1', '2', '4'].forEach(function(num) {
+        ['goal', 'context', 'expectations', 'limits'].forEach(function(field) {
+            const el = document.getElementById(field + num);
+            if (el) {
+                el.addEventListener('input', function() {
+                    updatePrompt('output' + num, 'goal' + num, 'context' + num, 'expectations' + num, 'limits' + num);
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
