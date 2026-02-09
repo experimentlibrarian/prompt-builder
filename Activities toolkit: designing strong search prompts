@@ -252,28 +252,45 @@
         .input-section textarea::placeholder {
             color: #999;
         }
-        /* Example Box - More visible */
+        /* Example Box Container */
         .example-box {
-            background-color: #e3f2fd;
-            border: 2px solid #1976d2;
-            padding: 15px 20px;
             margin-top: 15px;
+        }
+        /* Tip Row - Orange */
+        .tip-row {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 12px 18px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 10px;
+        }
+        .tip-row .tip-text {
             font-size: 14px;
+            color: #e65100;
+        }
+        .tip-row .tip-text strong {
+            color: #e65100;
+        }
+        /* Example Row - Green */
+        .example-row {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
             border-radius: 8px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
-        .example-box strong {
-            color: #1565c0;
-            display: block;
-            margin-bottom: 8px;
+        .example-row .example-icon {
+            font-size: 18px;
+            flex-shrink: 0;
         }
-        .example-box .example-text {
-            background-color: #fff;
-            border: 1px solid #90caf9;
-            border-radius: 4px;
-            padding: 10px 12px;
-            font-style: italic;
-            color: #333;
-            margin-top: 5px;
+        .example-row .example-text {
+            font-size: 14px;
+            color: #2e7d32;
+        }
+        .example-row .example-text strong {
+            color: #2e7d32;
         }
         /* Output Section */
         .output-section {
@@ -510,8 +527,13 @@
                 <p class="description">What do you want the AI to help you with?</p>
                 <textarea id="goal1" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">Identify the key concepts and suggest synonyms or related terms I can use to search academic databases</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> State clearly what you want the AI to do for you</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Identify the key concepts and suggest synonyms or related terms I can use to search academic databases</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -519,8 +541,13 @@
                 <p class="description">What's your topic and background?</p>
                 <textarea id="context1" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">My research topic is the impact of social media on teenage mental health. This is for a second-year Psychology assignment.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Include your topic, your course/level, any specific focus areas</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> My research topic is the impact of social media on teenage mental health. This is for a second-year Psychology assignment.</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -528,8 +555,13 @@
                 <p class="description">How do you want the response formatted?</p>
                 <textarea id="expectations1" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">Present the concepts as a list with 3-4 alternative terms for each. Keep explanations brief.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Specify format (list, table), number of items, level of detail</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Present the concepts as a list with 3-4 alternative terms for each. Keep explanations brief.</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -537,8 +569,13 @@
                 <p class="description">What constraints or boundaries do you want to set?</p>
                 <textarea id="limits1" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">Do not provide definitions, just identify my keywords and alternative terms.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Set boundaries like "Wait for my confirmation" or "Ask me questions if unclear"</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Do not provide definitions, just identify my keywords and alternative terms.</span>
+                    </div>
                 </div>
             </div>
             <div class="output-section">
@@ -571,8 +608,13 @@
                 <p class="description">What do you want the AI to help you with?</p>
                 <textarea id="goal2" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">Create a search string that combines my concepts using AND, OR, phrase searching, and truncation</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Ask for a search string that uses Boolean operators</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Create a search string that combines my concepts using AND, OR, phrase searching, and truncation</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -580,8 +622,13 @@
                 <p class="description">List your main concepts and the alternative terms you've identified</p>
                 <textarea id="context2" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">My main concepts are: 1) Social media (alternatives: Instagram, TikTok, social networking), 2) Teenagers (alternatives: adolescents, youth, young people), 3) Mental health (alternatives: wellbeing, anxiety, depression)</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Include your main concepts from Activity 1 and their synonyms/alternatives</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> My main concepts are: 1) Social media (alternatives: Instagram, TikTok, social networking), 2) Teenagers (alternatives: adolescents, youth, young people), 3) Mental health (alternatives: wellbeing, anxiety, depression)</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -589,8 +636,13 @@
                 <p class="description">How do you want the search string formatted?</p>
                 <textarea id="expectations2" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">Provide the search string in a format I can copy directly into a library database. Explain briefly why you structured it that way.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Specify ready-to-use format, with or without explanation, variations for different databases</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Provide the search string in a format I can copy directly into a library database. Explain briefly why you structured it that way.</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -598,8 +650,13 @@
                 <p class="description">What constraints do you want to set?</p>
                 <textarea id="limits2" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">Only use the terms I've provided. Ask me if you need more information about my topic focus.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Try "Don't add terms I haven't mentioned" or "Check with me before finalising"</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Only use the terms I've provided. Ask me if you need more information about my topic focus.</span>
+                    </div>
                 </div>
             </div>
             <div class="output-section">
@@ -648,8 +705,13 @@
                 <p class="description">Take notes on what happened when you tried your search (for your own reference):</p>
                 <textarea id="searchNotes" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">I searched in Library Search and got 2,847 results. Many seem relevant but there are too many to look through. Some results are about adults, not teenagers specifically.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Note which search option you used, how many results, are they relevant, what's working, what needs improvement</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> I searched in Library Search and got 2,847 results. Many seem relevant but there are too many to look through. Some results are about adults, not teenagers specifically.</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -671,8 +733,13 @@
                 <p class="description">What problem are you trying to solve?</p>
                 <textarea id="goal4" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">I'm getting too many irrelevant results. Suggest how to improve my search.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Describe the problem with your current results (too many, too few, irrelevant)</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> I'm getting too many irrelevant results. Suggest how to improve my search.</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -680,8 +747,13 @@
                 <p class="description">Describe your current search and what's happening</p>
                 <textarea id="context4" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">I'm researching the impact of social media on teenage mental health. My current search string is: (social media OR Instagram) AND (teenager OR adolescent) AND (mental health OR anxiety). I'm getting over 5,000 results and many are about adults, not teenagers.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Include your topic, current search string, what results you're getting, what's wrong with them</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> I'm researching the impact of social media on teenage mental health. My current search string is: (social media OR Instagram) AND (teenager OR adolescent) AND (mental health OR anxiety). I'm getting over 5,000 results and many are about adults, not teenagers.</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -689,8 +761,13 @@
                 <p class="description">What kind of advice do you want?</p>
                 <textarea id="expectations4" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">Give me 3 specific suggestions to narrow my results. For each suggestion, explain why it might help.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Specify number of suggestions, level of explanation, focus on narrowing or broadening</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Give me 3 specific suggestions to narrow my results. For each suggestion, explain why it might help.</span>
+                    </div>
                 </div>
             </div>
             <div class="input-section">
@@ -698,8 +775,13 @@
                 <p class="description">What constraints do you want to set?</p>
                 <textarea id="limits4" placeholder="Type here..."></textarea>
                 <div class="example-box">
-                    <strong>💡 Example:</strong>
-                    <div class="example-text">Let me try each suggestion before giving more.</div>
+                    <div class="tip-row">
+                        <span class="tip-text"><strong>💡 Tip:</strong> Try "Let me try each suggestion before giving more" or "Focus only on search string changes"</span>
+                    </div>
+                    <div class="example-row">
+                        <span class="example-icon">📝</span>
+                        <span class="example-text"><strong>Example:</strong> Let me try each suggestion before giving more.</span>
+                    </div>
                 </div>
             </div>
             <div class="output-section">
