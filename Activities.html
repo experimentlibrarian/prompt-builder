@@ -488,17 +488,17 @@
         <li><strong>Paste into <a href="https://copilot.microsoft.com" target="_blank">Copilot Chat</a></strong> and review the response</li>
         <li><strong>Move to the next activity</strong> when ready</li>
     </ol>
-    <p>Activity 3 is different: you'll test your search in the library instead of using Copilot.</p>
+    <p>Activity 2 is different: you'll test your search in the library instead of using Copilot.</p>
 </div>
 <!-- Privacy Disclaimer -->
 <div class="disclaimer-box">
     <p>🔒 <strong>Privacy reminder:</strong> Do not include personal information such as your name, student ID, or course codes in your prompts when using GenAI tools.</p>
 </div>
 <div class="accordion">
-    <!-- ACTIVITY 1: Identify Keywords -->
+    <!-- ACTIVITY 1: Identify Keywords and Build Search String -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <h3>📝 Activity 1: Identify keywords and related terms</h3>
+            <h3>📝 Activity 1: Identify keywords, related terms and build a search string</h3>
             <div class="chevron-icon">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
@@ -506,14 +506,14 @@
             </div>
         </div>
         <div class="accordion-content">
-            <p>Use this prompt to help you identify the main concepts in your research topic and discover alternative keywords.</p>
+            <p>Use this prompt to help you identify the main concepts in your research topic, discover alternative keywords, and build a search string.</p>
             <div class="input-section">
                 <label for="goal1">🎯 Part 1: Your goal</label>
-                <p class="description">What do you want the GenAI to help you with?</p>
+                <p class="description">What do you want the AI to help you with?</p>
                 <textarea id="goal1" placeholder="Type here..."></textarea>
                 <div class="example-box">
                     <div class="tip-row">
-                        <span class="tip-text"><strong>💡 Tip:</strong> State clearly what you want the GenAI to do for you</span>
+                        <span class="tip-text"><strong>💡 Tip:</strong> State clearly what you want the AI to do for you</span>
                     </div>
                     <div class="example-row">
                         <span class="example-icon">📝</span>
@@ -541,11 +541,11 @@
                 <textarea id="expectations1" placeholder="Type here..."></textarea>
                 <div class="example-box">
                     <div class="tip-row">
-                        <span class="tip-text"><strong>💡 Tip:</strong> Specify format (list, table), number of items, level of detail</span>
+                        <span class="tip-text"><strong>💡 Tip:</strong> Specify format, number of concepts, and request a search string</span>
                     </div>
                     <div class="example-row">
                         <span class="example-icon">📝</span>
-                        <span class="example-text"><strong>Example:</strong> Present a maximum of 4 key concepts, each with 2 to 4 alternative terms or synonyms, in a table.</span>
+                        <span class="example-text"><strong>Example:</strong> Present a maximum of 4 key concepts, each with 2 to 4 alternative terms or synonyms, and combine them into a search string to use in Google Scholar.</span>
                     </div>
                 </div>
             </div>
@@ -576,91 +576,10 @@
             </div>
         </div>
     </div>
-    <!-- ACTIVITY 2: Build Search String -->
+    <!-- ACTIVITY 2: Try Your Search -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <h3>🔗 Activity 2: Build a search string</h3>
-            <div class="chevron-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-                </svg>
-            </div>
-        </div>
-        <div class="accordion-content">
-            <p>Use this prompt to combine your concepts and keywords into a search string using Boolean operators (AND, OR, NOT), phrase searching (""), and truncation (*).</p>
-            <div class="input-section">
-                <label for="goal2">🎯 Part 1: Your goal</label>
-                <p class="description">What do you want the GenAI to help you with?</p>
-                <textarea id="goal2" placeholder="Type here..."></textarea>
-                <div class="example-box">
-                    <div class="tip-row">
-                        <span class="tip-text"><strong>💡 Tip:</strong> Ask for a search string that uses Boolean operators</span>
-                    </div>
-                    <div class="example-row">
-                        <span class="example-icon">📝</span>
-                        <span class="example-text"><strong>Example:</strong> Create a search string that combines my concepts using AND, OR, phrase searching, and truncation</span>
-                    </div>
-                </div>
-            </div>
-            <div class="input-section">
-                <label for="context2">📚 Part 2: Your context</label>
-                <p class="description">List your main concepts and the alternative terms you've identified</p>
-                <textarea id="context2" placeholder="Type here..."></textarea>
-                <div class="example-box">
-                    <div class="tip-row">
-                        <span class="tip-text"><strong>💡 Tip:</strong> Include your main concepts from Activity 1 and their synonyms/alternatives</span>
-                    </div>
-                    <div class="example-row">
-                        <span class="example-icon">📝</span>
-                        <span class="example-text"><strong>Example:</strong> My main concepts are: 1) Social media (alternatives: Instagram, TikTok, social networking), 2) Teenagers (alternatives: adolescents, youth, young people), 3) Mental health (alternatives: wellbeing, anxiety, depression)</span>
-                    </div>
-                </div>
-            </div>
-            <div class="input-section">
-                <label for="expectations2">📋 Part 3: Your expectations</label>
-                <p class="description">How do you want the search string formatted?</p>
-                <textarea id="expectations2" placeholder="Type here..."></textarea>
-                <div class="example-box">
-                    <div class="tip-row">
-                        <span class="tip-text"><strong>💡 Tip:</strong> Specify ready-to-use format, with or without explanation, variations for different databases</span>
-                    </div>
-                    <div class="example-row">
-                        <span class="example-icon">📝</span>
-                        <span class="example-text"><strong>Example:</strong> Provide the search string in a format I can copy directly into a library database. Explain briefly why you structured it that way.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="input-section">
-                <label for="limits2">🚧 Part 4: Your limits</label>
-                <p class="description">What constraints do you want to set?</p>
-                <textarea id="limits2" placeholder="Type here..."></textarea>
-                <div class="example-box">
-                    <div class="tip-row">
-                        <span class="tip-text"><strong>💡 Tip:</strong> Try "Don't add terms I haven't mentioned" or "Check with me before finalising"</span>
-                    </div>
-                    <div class="example-row">
-                        <span class="example-icon">📝</span>
-                        <span class="example-text"><strong>Example:</strong> Only use the terms I've provided. Ask me if you need more information about my topic focus.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="output-section">
-                <h4>✨ Your complete prompt</h4>
-                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
-                <div class="output-box empty" id="output2" onclick="copyPrompt('output2', 'goal2', 'context2', 'expectations2', 'limits2', 'Activity 2')">
-                    <span class="copy-hint" id="copyHint2" style="display:none;">📋 Click to copy</span>
-                    <span id="outputText2">Start typing in the fields above to build your prompt...</span>
-                </div>
-                <div class="privacy-notice">
-                    <strong>📊 Note:</strong> When you copy, your prompt is anonymously logged to help improve this workshop.
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ACTIVITY 3: Try Your Search -->
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            <h3>🔍 Activity 3: Try your search in the library</h3>
+            <h3>🔍 Activity 2: Try your search in the library</h3>
             <div class="chevron-icon">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
@@ -672,7 +591,7 @@
             <div class="library-instructions-box">
                 <h4>🏛️ What to do</h4>
                 <ol>
-                    <li><strong>Copy your search string</strong> from Activity 2</li>
+                    <li><strong>Copy your search string</strong> from Activity 1</li>
                     <li><strong>Go to the <a href="https://library.aut.ac.nz" target="_blank">AUT Library website</a></strong></li>
                     <li><strong>Choose a search option</strong> from the left side of the homepage, under <strong>"Search our:"</strong>
                         <ul>
@@ -683,7 +602,7 @@
                     </li>
                     <li><strong>Paste your search string</strong> and review your results</li>
                 </ol>
-                <p><strong>Too many, too few, or irrelevant results?</strong> Move to Activity 4 for help refining!</p>
+                <p><strong>Too many, too few, or irrelevant results?</strong> Move to Activity 3 for help refining!</p>
             </div>
             <div class="input-section">
                 <label for="searchNotes">📝 Record your search results</label>
@@ -701,10 +620,10 @@
             </div>
         </div>
     </div>
-    <!-- ACTIVITY 4: Refine Your Search -->
+    <!-- ACTIVITY 3: Refine Your Search -->
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
-            <h3>🔧 Activity 4: Get advice to refine your search</h3>
+            <h3>🔧 Activity 3: Get advice to refine your search</h3>
             <div class="chevron-icon">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
@@ -714,9 +633,9 @@
         <div class="accordion-content">
             <p>Getting too many, too few, or irrelevant results? Use this prompt to get advice on refining your search strategy.</p>
             <div class="input-section">
-                <label for="goal4">🎯 Part 1: Your goal</label>
+                <label for="goal3">🎯 Part 1: Your goal</label>
                 <p class="description">What problem are you trying to solve?</p>
-                <textarea id="goal4" placeholder="Type here..."></textarea>
+                <textarea id="goal3" placeholder="Type here..."></textarea>
                 <div class="example-box">
                     <div class="tip-row">
                         <span class="tip-text"><strong>💡 Tip:</strong> Describe the problem with your current results (too many, too few, irrelevant)</span>
@@ -728,9 +647,9 @@
                 </div>
             </div>
             <div class="input-section">
-                <label for="context4">📚 Part 2: Your context</label>
+                <label for="context3">📚 Part 2: Your context</label>
                 <p class="description">Describe your current search and what's happening</p>
-                <textarea id="context4" placeholder="Type here..."></textarea>
+                <textarea id="context3" placeholder="Type here..."></textarea>
                 <div class="example-box">
                     <div class="tip-row">
                         <span class="tip-text"><strong>💡 Tip:</strong> Include your topic, current search string, what results you're getting, what's wrong with them</span>
@@ -742,9 +661,9 @@
                 </div>
             </div>
             <div class="input-section">
-                <label for="expectations4">📋 Part 3: Your expectations</label>
+                <label for="expectations3">📋 Part 3: Your expectations</label>
                 <p class="description">What kind of advice do you want?</p>
-                <textarea id="expectations4" placeholder="Type here..."></textarea>
+                <textarea id="expectations3" placeholder="Type here..."></textarea>
                 <div class="example-box">
                     <div class="tip-row">
                         <span class="tip-text"><strong>💡 Tip:</strong> Specify number of suggestions, level of explanation, focus on narrowing or broadening</span>
@@ -756,9 +675,9 @@
                 </div>
             </div>
             <div class="input-section">
-                <label for="limits4">🚧 Part 4: Your limits</label>
+                <label for="limits3">🚧 Part 4: Your limits</label>
                 <p class="description">What constraints do you want to set?</p>
-                <textarea id="limits4" placeholder="Type here..."></textarea>
+                <textarea id="limits3" placeholder="Type here..."></textarea>
                 <div class="example-box">
                     <div class="tip-row">
                         <span class="tip-text"><strong>💡 Tip:</strong> Try "Let me try each suggestion before giving more" or "Focus only on search string changes"</span>
@@ -771,10 +690,10 @@
             </div>
             <div class="output-section">
                 <h4>✨ Your complete prompt</h4>
-                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot</a>!</p>
-                <div class="output-box empty" id="output4" onclick="copyPrompt('output4', 'goal4', 'context4', 'expectations4', 'limits4', 'Activity 4')">
-                    <span class="copy-hint" id="copyHint4" style="display:none;">📋 Click to copy</span>
-                    <span id="outputText4">Start typing in the fields above to build your prompt...</span>
+                <p style="font-size: 14px; color: #555;">Click the box to copy your prompt, then paste it into <a href="https://copilot.microsoft.com" target="_blank">Copilot Chat</a>!</p>
+                <div class="output-box empty" id="output3" onclick="copyPrompt('output3', 'goal3', 'context3', 'expectations3', 'limits3', 'Activity 3')">
+                    <span class="copy-hint" id="copyHint3" style="display:none;">📋 Click to copy</span>
+                    <span id="outputText3">Start typing in the fields above to build your prompt...</span>
                 </div>
                 <div class="privacy-notice">
                     <strong>📊 Note:</strong> When you copy, your prompt is anonymously logged to help improve this workshop.
@@ -786,8 +705,8 @@
 <!-- WHAT'S NEXT - Closing section -->
 <div class="whats-next">
     <h3>➡️ What's next</h3>
-    <p>Now that you understand the four elements (Goal, Context, Expectation, Limits), use them flexibly. You might include all four in one prompt, or use them separately at different moments in your conversation.</p>
-    <p>Remember, GenAI can be a useful assistant, but you're in control. <strong>You lead the conversation, judge what's useful</strong> and <strong>make the final decisions</strong>.</p>
+    <p>Now that you understand the four elements, use them flexibly. You might include all four in one prompt, or use them separately at different moments in your conversation.</p>
+    <p>Remember, GenAI can be a useful assistant, but you're in control. <strong>You lead the conversation, judge what's useful</strong> and <strong>make the final decisions.</strong></p>
 </div>
 <!-- SUPPORT SECTION -->
 <div class="support-box">
@@ -801,6 +720,7 @@
 <script>
     // Google Apps Script URL - Replace with your actual deployed script URL
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwg6N9goEM-9UxoyAFddolUtJLcg-8Ju3JN2IX-YkGY_BsI_4UiqNOj8K3vrF6IZSju/exec';
+    
     // Activity Accordion functionality
     function toggleAccordion(header) {
         const item = header.parentElement;
@@ -918,8 +838,8 @@
             msg.classList.remove('visible');
         }, 2500);
     }
-    // Add input listeners for Activities 1, 2, and 4 only (Activity 3 has no prompt builder)
-    ['1', '2', '4'].forEach(function(num) {
+    // Add input listeners for Activities 1 and 3 only (Activity 2 has no prompt builder)
+    ['1', '3'].forEach(function(num) {
         ['goal', 'context', 'expectations', 'limits'].forEach(function(field) {
             const el = document.getElementById(field + num);
             if (el) {
