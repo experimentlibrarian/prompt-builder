@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Q&A – Leave a Question</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        h1 {
+            color: #1565c0;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1565c0;
+            font-size: 26px;
+        }
+
+        /* Intro box */
+        .intro-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 12px;
+            padding: 22px 28px;
+            margin-bottom: 30px;
+            border-left: 5px solid #1976d2;
+        }
+
+        .intro-box p {
+            margin: 0 0 12px 0;
+            font-size: 15px;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-box ul {
+            margin: 6px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .intro-box li {
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .intro-box .highlight-line {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0d47a1;
+            margin: 14px 0 6px 0;
+        }
+
+        .next-workshop-banner {
+            background-color: #fff;
+            border: 2px solid #1976d2;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 14px;
+            font-size: 14px;
+            color: #1565c0;
+        }
+
+        .next-workshop-banner strong {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 2px;
+            color: #0d47a1;
+        }
+
+        /* Form card */
+        .form-card {
+            background-color: #fff;
+            border: 2px solid #1976d2;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            color: #1565c0;
+            font-size: 15px;
+        }
+
+        .form-group .sublabel {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 400;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.18);
+            background-color: #fff;
+        }
+
+        .form-group input[type="text"]::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Optional badge */
+        .optional-badge {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1565c0;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+            vertical-align: middle;
+            letter-spacing: 0.3px;
+        }
+
+        /* Anonymous note */
+        .anon-note {
+            background-color: #f5f5f5;
+            border-left: 3px solid #90caf9;
+            border-radius: 0 6px 6px 0;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #555;
+            margin-top: 8px;
+        }
+
+        /* Category chips */
+        .chip-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .chip {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 18px;
+            border: 2px solid #1976d2;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #1565c0;
+            background-color: #fff;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            user-select: none;
+        }
+
+        .chip:hover {
+            background-color: #e3f2fd;
+        }
+
+        .chip.selected {
+            background-color: #1976d2;
+            color: #fff;
+            border-color: #1565c0;
+        }
+
+        .chip.selected .chip-desc {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .chip input[type="radio"] {
+            display: none;
+        }
+
+        .chip-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .chip-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .chip-title {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .chip-desc {
+            font-size: 12px;
+            color: #666;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.15s;
+            margin-top: 8px;
+            font-family: inherit;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background-color: #1565c0;
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:disabled {
+            background-color: #90caf9;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Validation message */
+        .validation-msg {
+            color: #d84315;
+            font-size: 13px;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .validation-msg.visible {
+            display: block;
+        }
+
+        /* Success state */
+        .success-panel {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-panel.visible {
+            display: block;
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 3px solid #4caf50;
+        }
+
+        .success-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .success-panel h2 {
+            color: #2e7d32;
+            margin: 0 0 12px 0;
+            font-size: 22px;
+        }
+
+        .success-panel p {
+            color: #555;
+            font-size: 15px;
+            margin: 0 0 10px 0;
+        }
+
+        .another-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 12px 28px;
+            background-color: #e3f2fd;
+            color: #1565c0;
+            border: 2px solid #1976d2;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background-color 0.2s;
+        }
+
+        .another-btn:hover {
+            background-color: #bbdefb;
+        }
+
+        /* Error banner */
+        .error-banner {
+            background-color: #ffebee;
+            border: 2px solid #ef9a9a;
+            border-radius: 8px;
+            padding: 14px 18px;
+            color: #c62828;
+            font-size: 14px;
+            margin-top: 14px;
+            display: none;
+        }
+
+        .error-banner.visible {
+            display: block;
+        }
+
+        /* Privacy footer */
+        .privacy-footer {
+            margin-top: 24px;
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .privacy-footer strong {
+            color: #444;
+        }
+
+        /* Divider */
+        .divider {
+            border: none;
+            border-top: 1px solid #e3f2fd;
+            margin: 24px 0;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255,255,255,0.4);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 560px) {
+            .form-card {
+                padding: 20px 16px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>💬 Workshop Q&A</h1>
+
+<div class="intro-box">
+    <p>👋 <strong>Thanks for joining the library workshop!</strong> We are always looking for ways to provide academic support for your assessments.</p>
+    <p>We'll have another workshop next week, and to make it as relevant as possible for you, we'd love to know…</p>
+    <p class="highlight-line">Got a question? Something still unclear? A thought you'd like to share?</p>
+    <p>Leave it here and a librarian or learning advisor will follow up at the next library workshop.</p>
+    <div class="next-workshop-banner">
+        <strong>📅 Next workshop: Monday, 30 March</strong>
+        Your question will be addressed then — or sooner if we can reach you by name!
+    </div>
+</div>
+
+<div class="form-card" id="formCard">
+
+    <!-- SUCCESS PANEL -->
+    <div class="success-panel" id="successPanel">
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+        <h2>Thanks for your question!</h2>
+        <p>We've received your submission. A librarian or learning advisor will follow up at the next workshop on <strong>Monday, 30 March</strong>.</p>
+        <p id="successNameLine" style="display:none; font-weight:600; color:#1565c0;"></p>
+        <button class="another-btn" onclick="resetForm()">Submit another response</button>
+    </div>
+
+    <!-- FORM -->
+    <form id="qaForm" novalidate>
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="studentName">
+                Your Name
+                <span class="optional-badge">Optional</span>
+            </label>
+            <span class="sublabel">Include your name if you'd like a personalised follow-up.</span>
+            <input
+                type="text"
+                id="studentName"
+                name="studentName"
+                placeholder="e.g. Aroha Ngata"
+                autocomplete="name"
+            />
+            <div class="anon-note">
+                If you leave this blank, your question will be submitted anonymously — that's completely fine!
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Category -->
+        <div class="form-group">
+            <label>What is your question about?</label>
+            <span class="sublabel">Choose the option that best fits your question or comment.</span>
+            <div class="chip-group">
+
+                <label class="chip selected" onclick="selectChip(this)">
+                    <input type="radio" name="category" value="Finding Information" checked>
+                    <span class="chip-icon">🔍</span>
+                    <span class="chip-text">
+                        <span class="chip-title">Finding Information</span>
+                        <span class="chip-desc">Searching databases, finding sources, using the library, search strategies</span>
+                    </span>
+                </label>
+
+                <label class="chip" onclick="selectChip(this)">
+                    <input type="radio" name="category" value="Academic Writing">
+                    <span class="chip-icon">✍️</span>
+                    <span class="chip-text">
+                        <span class="chip-title">Academic Writing</span>
+                        <span class="chip-desc">Referencing, structuring assignments, academic language, citations</span>
+                    </span>
+                </label>
+
+                <label class="chip" onclick="selectChip(this)">
+                    <input type="radio" name="category" value="Using AI Tools">
+                    <span class="chip-icon">🤖</span>
+                    <span class="chip-text">
+                        <span class="chip-title">Using AI Tools</span>
+                        <span class="chip-desc">Prompting, Copilot, understanding AI limitations, academic integrity</span>
+                    </span>
+                </label>
+
+                <label class="chip" onclick="selectChip(this)">
+                    <input type="radio" name="category" value="Other">
+                    <span class="chip-icon">📝</span>
+                    <span class="chip-text">
+                        <span class="chip-title">Other / General Feedback</span>
+                        <span class="chip-desc">Anything else — suggestions, comments, or questions that don't fit above</span>
+                    </span>
+                </label>
+
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Question -->
+        <div class="form-group">
+            <label for="questionText">
+                Your Question or Comment <span style="color:#d84315;">*</span>
+            </label>
+            <span class="sublabel">Be as specific as you like — the more detail, the better we can help.</span>
+            <textarea
+                id="questionText"
+                name="questionText"
+                placeholder="Type your question or comment here..."
+            ></textarea>
+            <div class="validation-msg" id="questionValidation">
+                Please enter your question or comment before submitting.
+            </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" id="submitBtn">
+            Submit My Question
+        </button>
+
+        <div class="error-banner" id="errorBanner">
+            Something went wrong — please try again. If this keeps happening, please contact your librarian directly.
+        </div>
+
+    </form>
+</div>
+
+<div class="privacy-footer">
+    <strong>Privacy notice:</strong> Responses are collected in a private Google Sheet accessible only
+    to AUT Library staff and learning advisors. Your name is optional and will only be used to follow
+    up on your question. No data is shared with third parties.
+</div>
+
+<script>
+    // ============================================
+    // CONFIGURATION — replace with your deployed
+    // Google Apps Script Web App URL
+    // ============================================
+    const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+    // ============================================
+    // Chip selection
+    // ============================================
+    function selectChip(clicked) {
+        document.querySelectorAll('.chip').forEach(function(chip) {
+            chip.classList.remove('selected');
+        });
+        clicked.classList.add('selected');
+    }
+
+    function getCategory() {
+        const selected = document.querySelector('input[name="category"]:checked');
+        return selected ? selected.value : 'Finding Information';
+    }
+
+    // ============================================
+    // Form submission
+    // ============================================
+    document.getElementById('qaForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const questionText = document.getElementById('questionText').value.trim();
+        const validationMsg = document.getElementById('questionValidation');
+        const errorBanner   = document.getElementById('errorBanner');
+
+        if (!questionText) {
+            validationMsg.classList.add('visible');
+            document.getElementById('questionText').focus();
+            return;
+        }
+
+        validationMsg.classList.remove('visible');
+        errorBanner.classList.remove('visible');
+
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner"></span>Submitting...';
+
+        const payload = {
+            studentName:  document.getElementById('studentName').value.trim() || 'Anonymous',
+            category:     getCategory(),
+            questionText: questionText,
+            submittedAt:  new Date().toLocaleString('en-NZ', { timeZone: 'Pacific/Auckland' })
+        };
+
+        fetch(GOOGLE_SCRIPT_URL, {
+            method:  'POST',
+            mode:    'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify(payload)
+        })
+        .then(function() {
+            showSuccess(payload.studentName);
+        })
+        .catch(function(err) {
+            console.error('Submission error:', err);
+            btn.disabled = false;
+            btn.innerHTML = 'Submit My Question';
+            errorBanner.classList.add('visible');
+        });
+    });
+
+    // ============================================
+    // Success state
+    // ============================================
+    function showSuccess(name) {
+        document.getElementById('qaForm').style.display = 'none';
+        document.getElementById('successPanel').classList.add('visible');
+
+        if (name && name !== 'Anonymous') {
+            const line = document.getElementById('successNameLine');
+            line.textContent = 'Submitted by: ' + name;
+            line.style.display = 'block';
+        }
+    }
+
+    // ============================================
+    // Reset form
+    // ============================================
+    function resetForm() {
+        document.getElementById('studentName').value  = '';
+        document.getElementById('questionText').value = '';
+
+        document.querySelectorAll('.chip').forEach(function(chip) {
+            chip.classList.remove('selected');
+        });
+        document.querySelector('.chip').classList.add('selected');
+        document.querySelector('input[name="category"]').checked = true;
+
+        document.getElementById('questionValidation').classList.remove('visible');
+        document.getElementById('errorBanner').classList.remove('visible');
+
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = false;
+        btn.innerHTML = 'Submit My Question';
+
+        document.getElementById('qaForm').style.display = 'block';
+        document.getElementById('successPanel').classList.remove('visible');
+        document.getElementById('successNameLine').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
