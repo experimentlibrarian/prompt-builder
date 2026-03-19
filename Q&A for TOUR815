@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+Workshop Q&A – Leave a Question
+💬 Workshop Q&A
+    <p><strong>Got a question? Something still unclear? A thought you'd like to share?</strong></p>
+    <p>Leave it here and a librarian will follow up — either in a future session or by email if you include your name.</p>
+    <ul>
+        <li>You can submit anonymously — your name is completely optional</li>
+        <li>All questions are welcome — there are no silly ones!</li>
+        <li>You can also use this to share feedback about the workshop</li>
+    </ul>
+
+    <!-- SUCCESS PANEL (hidden until submission) -->
+    <div class="success-panel" id="successPanel">
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+        <h2>Thanks for your question!</h2>
+        <p>We've received your submission. A librarian will look into it soon.</p>
+        <p id="successNameLine" style="display:none; font-weight: 600; color: #1565c0;"></p>
+        <button class="another-btn" onclick="resetForm()">Submit another response</button>
+    </div>
+
+    <!-- FORM (shown by default) -->
+    <form id="qaForm" novalidate>
+
+        <!-- Name field -->
+        <div class="form-group">
+            <label for="studentName">
+                Your Name
+                <span class="optional-badge">Optional</span>
+            </label>
+            <span class="sublabel">Include your name if you'd like a personalised follow-up.</span>
+            <input
+                type="text"
+                id="studentName"
+                name="studentName"
+                placeholder="e.g. Aroha Ngata"
+                autocomplete="name"
+            />
+            <div class="anon-note">
+                If you leave this blank, your question will be submitted anonymously — that's completely fine!
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Category chips -->
+        <div class="form-group">
+            <label>What type of response is this?</label>
+            <span class="sublabel">Choose the one that best fits.</span>
+            <div class="chip-group" id="chipGroup">
+                <label class="chip selected" onclick="selectChip(this)">
+                    <input type="radio" name="category" value="Question" checked>
+                    ❓ Question
+                </label>
+                <label class="chip" onclick="selectChip(this)">
+                    <input type="radio" name="category" value="Feedback">
+                    💬 Feedback
+                </label>
+                <label class="chip" onclick="selectChip(this)">
+                    <input type="radio" name="category" value="Idea or Suggestion">
+                    💡 Idea or Suggestion
+                </label>
+                <label class="chip" onclick="selectChip(this)">
+                    <input type="radio" name="category" value="Other">
+                    📝 Other
+                </label>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Question / comment -->
+        <div class="form-group">
+            <label for="questionText">Your Question or Comment <span style="color:#d84315;">*</span></label>
+            <span class="sublabel">Be as specific as you like — the more detail, the better we can help.</span>
+            <textarea
+                id="questionText"
+                name="questionText"
+                placeholder="Type your question or comment here..."
+            ></textarea>
+            <div class="validation-msg" id="questionValidation">
+                Please enter your question or comment before submitting.
+            </div>
+        </div>
+
+        <!-- Workshop field -->
+        <div class="form-group">
+            <label for="workshopName">
+                Workshop Name or Topic
+                <span class="optional-badge">Optional</span>
+            </label>
+            <span class="sublabel">Helps us know which session your question is about.</span>
+            <input
+                type="text"
+                id="workshopName"
+                name="workshopName"
+                placeholder="e.g. Designing Strong Search Prompts"
+            />
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" id="submitBtn">
+            Submit My Question
+        </button>
+
+        <div class="error-banner" id="errorBanner">
+            Something went wrong — please try again. If this keeps happening, please contact your librarian directly.
+        </div>
+
+    </form>
+
+    <strong>Privacy notice:</strong> Responses are collected in a private Google Sheet accessible only to AUT Library staff. Your name is optional and will only be used to follow up on your question. No data is shared with third parties.
